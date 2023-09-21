@@ -1,4 +1,3 @@
-import 'package:booking_hotels/constents.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {

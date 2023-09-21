@@ -3,7 +3,9 @@ class Assets {
   Assets._();
 
   static const String imagesEllipse1 = 'assets/images/Ellipse1.png';
+  static const String imagesEllipse11 = 'assets/images/Ellipse11.png';
   static const String imagesEllipse2 = 'assets/images/Ellipse2.png';
+  static const String imagesEllipse22 = 'assets/images/Ellipse22.png';
   static const String imagesLogo1 = 'assets/images/logo1.png';
   static const String imagesSplashOne = 'assets/images/splash_one.png';
   static const String imagesSplashThree = 'assets/images/splash_three.png';
