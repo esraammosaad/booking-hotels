@@ -1,3 +1,4 @@
+import 'package:booking_hotels/constents.dart';
 import 'package:booking_hotels/features/splash/presentation/views/widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: kPrimaryColor,
 
       body: SplashViewBody(),
     );
