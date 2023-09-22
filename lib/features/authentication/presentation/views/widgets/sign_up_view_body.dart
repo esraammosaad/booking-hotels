@@ -1,13 +1,9 @@
-import 'package:booking_hotels/constants.dart';
 import 'package:booking_hotels/core/utils/styles.dart';
-import 'package:booking_hotels/features/authentication/presentation/views/widgets/custom_text_form_field.dart';
-import 'package:booking_hotels/core/utils/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons_plus/icons_plus.dart';
 import '../../../../../core/utils/custom_decoration.dart';
-import 'custom_forget_password_widget.dart';
 import 'custom_sign_in_container.dart';
 import 'custom_sign_up_form.dart';
 import 'custom_text_span.dart';
@@ -34,14 +30,16 @@ class SignUpViewBody extends StatelessWidget {
                 height: 22,
               ),
               const CustomSignUpForm(),
-
               const SizedBox(
                 height: 24,
               ),
-              CustomTextSpan(
-                  text: 'Already have an account?  ',
-                  buttonText: 'sign in',
-                  onTap: () => context.pop()),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 45),
+                child: CustomTextSpan(
+                    text: 'Already have an account?  ',
+                    buttonText: 'sign in',
+                    onTap: () => context.pop()),
+              ),
               const SizedBox(
                 height: 50,
               ),
@@ -73,5 +71,3 @@ class SignUpViewBody extends StatelessWidget {
     );
   }
 }
-
-

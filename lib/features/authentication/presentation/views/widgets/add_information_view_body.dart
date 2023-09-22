@@ -26,29 +26,53 @@ class AddInformationViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 25,
                 ),
-                CustomTextFormField(hintText: 'Name', onSave: (value) {}),
+                CustomTextFormField(
+                  obscureText: false,
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.next,
+                  hintText: 'Name',
+                  onSave: (value) {},
+                ),
                 const SizedBox(
                   height: 24,
                 ),
                 CustomTextFormField(
-                    hintText: 'Your number', onSave: (value) {}),
+                  obscureText: false,
+                  keyboardType: TextInputType.phone,
+                  textInputAction: TextInputAction.next,
+                  hintText: 'Your number',
+                  onSave: (value) {},
+                ),
                 const SizedBox(
                   height: 24,
                 ),
-                CustomTextFormField(hintText: 'Country', onSave: (value) {}),
+                CustomTextFormField(
+                  obscureText: false,
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.next,
+                  hintText: 'Country',
+                  onSave: (value) {},
+                ),
                 const SizedBox(
                   height: 24,
                 ),
-                CustomTextFormField(hintText: 'Gender', onSave: (value) {}),
+                CustomTextFormField(
+                  obscureText: false,
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.done,
+                  hintText: 'Gender',
+                  onSave: (value) {},
+                ),
                 const SizedBox(
                   height: 39,
                 ),
                 CustomButton(
-                    text: 'Continue',
-                    onPressed: () {},
-                    textStyle: Styles.textStyle20.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.w700),
-                    color: kPrimaryColor),
+                  text: 'Continue',
+                  onPressed: () {},
+                  textStyle: Styles.textStyle20.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.w700),
+                  color: kPrimaryColor,
+                ),
               ],
             ),
           ),

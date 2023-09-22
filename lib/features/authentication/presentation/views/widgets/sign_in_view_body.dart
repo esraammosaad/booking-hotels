@@ -31,10 +31,13 @@ class SignInViewBody extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              CustomTextSpan(
-                  text: 'Don`t have an account?  ',
-                  buttonText: 'sign Up',
-                  onTap: () => context.push(AppRoutes.kSignUpView)),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 45),
+                child: CustomTextSpan(
+                    text: 'Don`t have an account?  ',
+                    buttonText: 'sign Up',
+                    onTap: () => context.push(AppRoutes.kSignUpView)),
+              ),
               const SizedBox(
                 height: 50,
               ),

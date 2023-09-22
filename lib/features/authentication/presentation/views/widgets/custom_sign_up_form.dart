@@ -5,6 +5,7 @@ import '../../../../../core/utils/custom_button.dart';
 import '../../../../../core/utils/routes.dart';
 import '../../../../../core/utils/styles.dart';
 import 'custom_text_form_field.dart';
+
 class CustomSignUpForm extends StatefulWidget {
   const CustomSignUpForm({Key? key}) : super(key: key);
 
@@ -13,8 +14,9 @@ class CustomSignUpForm extends StatefulWidget {
 }
 
 class _CustomSignUpFormState extends State<CustomSignUpForm> {
-  GlobalKey<FormState> formKey=GlobalKey<FormState>();
-  AutovalidateMode autoValidateMode=AutovalidateMode.disabled;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -22,34 +24,51 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
       autovalidateMode: autoValidateMode,
       child: Column(
         children: [
-
-          CustomTextFormField(hintText: 'Email', onSave: (value) {}),
-          const SizedBox(
-            height: 24,
+          CustomTextFormField(
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.emailAddress,
+            obscureText: false,
+            hintText: 'Email',
+            onSave: (value) {},
           ),
-          CustomTextFormField(hintText: 'Password', onSave: (value) {}),
           const SizedBox(
             height: 24,
           ),
           CustomTextFormField(
-              hintText: 'Confirm Password', onSave: (value) {}),
+            keyboardType: TextInputType.text,
+            textInputAction: TextInputAction.next,
+            obscureText: true,
+            hintText: 'Password',
+            onSave: (value) {},
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          CustomTextFormField(
+            obscureText: true,
+            keyboardType: TextInputType.text,
+            textInputAction: TextInputAction.done,
+            hintText: 'Confirm Password',
+            onSave: (value) {},
+          ),
           const SizedBox(
             height: 39,
           ),
           CustomButton(
-              text: 'Sign up',
-              onPressed: () {
-                if(formKey.currentState!.validate()){
-                  formKey.currentState!.save();
-                  context.pushReplacement(AppRoutes.kAddInformationView);
-                }
-                autoValidateMode=AutovalidateMode.always;
-                setState(() {
-
-                });
-              },
-              textStyle: Styles.textStyle20.copyWith(color: Colors.white),
-              color: kPrimaryColor),
+            text: 'Sign up',
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+                context.pushReplacement(AppRoutes.kAddInformationView);
+              }
+              autoValidateMode = AutovalidateMode.always;
+              setState(
+                () {},
+              );
+            },
+            textStyle: Styles.textStyle20.copyWith(color: Colors.white),
+            color: kPrimaryColor,
+          ),
         ],
       ),
     );
