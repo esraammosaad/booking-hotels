@@ -1,4 +1,4 @@
-import 'package:booking_hotels/constents.dart';
+import 'package:booking_hotels/constants.dart';
 import 'package:booking_hotels/core/utils/routes.dart';
 import 'package:booking_hotels/core/utils/styles.dart';
 import 'package:booking_hotels/core/utils/custom_button.dart';
@@ -54,7 +54,7 @@ class OnBoardingViewBody extends StatelessWidget {
           CustomButton(
             text: 'Skip',
             onPressed: () {
-              context.go(AppRoutes.kSignInView,);
+              context.push(AppRoutes.kSignInView,);
             },
             textStyle: Styles.textStyle20
                 .copyWith(color: kPrimaryColor, fontWeight: FontWeight.w700),

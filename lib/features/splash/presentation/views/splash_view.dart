@@ -1,4 +1,4 @@
-import 'package:booking_hotels/constents.dart';
+import 'package:booking_hotels/constants.dart';
 import 'package:booking_hotels/features/splash/presentation/views/widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
 

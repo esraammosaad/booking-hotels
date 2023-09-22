@@ -52,7 +52,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigationToSplashOneView() {
     Future.delayed(
-      const Duration(seconds: 10),
+      const Duration(seconds: 5),
       () {
         context.go(AppRoutes.kPageView);
       },

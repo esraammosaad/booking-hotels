@@ -2,6 +2,9 @@ import 'package:booking_hotels/features/splash/presentation/views/onBoarding_vie
 import 'package:booking_hotels/features/splash/presentation/views/widgets/custom_page_indicator.dart';
 import 'package:booking_hotels/generated/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../core/utils/routes.dart';
 
 class CustomPageView extends StatelessWidget {
   const CustomPageView({Key? key}) : super(key: key);
@@ -35,9 +38,7 @@ class CustomPageView extends StatelessWidget {
             image: Assets.imagesSplashThree,
             text: 'Top hotels with great deals and more',
             onPressed: () {
-              CustomPageIndicator.controller.nextPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeInExpo);
+              context.push(AppRoutes.kSignInView);
             },
           ),
         ],

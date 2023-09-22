@@ -36,7 +36,8 @@ class CustomSignInContainer extends StatelessWidget {
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
                 ),
-                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
             ))
           ],

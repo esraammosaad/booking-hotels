@@ -1,25 +1,27 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../../../../../constents.dart';
+import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
 class CustomTextSpan extends StatelessWidget {
   const CustomTextSpan({
-    super.key,
+    super.key, required this.text, required this.buttonText, required this.onTap,
   });
+  final String text;
+  final String buttonText;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 72.0),
+    return Center(
       child: Text.rich(TextSpan(
-          text: 'Don`t have an account?  ',
+          text: text,
           style: Styles.textStyle20
               .copyWith(fontWeight: FontWeight.w500, color: Colors.black),
           children: <InlineSpan>[
             TextSpan(
                 recognizer: TapGestureRecognizer()
-                  ..onTap = () => print('object'),
-                text: 'sign Up',
+                  ..onTap = onTap,
+                text: buttonText,
                 style: Styles.textStyle20.copyWith(
                     fontWeight: FontWeight.w500, color: kPrimaryColor))
           ])),
