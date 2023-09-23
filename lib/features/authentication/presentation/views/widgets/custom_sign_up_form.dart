@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/custom_button.dart';
-import '../../../../../core/utils/routes.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../manager/auth_cubit/auth_cubit.dart';
 import 'custom_text_form_field.dart';
 
 class CustomSignUpForm extends StatefulWidget {
@@ -16,6 +16,9 @@ class CustomSignUpForm extends StatefulWidget {
 class _CustomSignUpFormState extends State<CustomSignUpForm> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +28,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
       child: Column(
         children: [
           CustomTextFormField(
+            controller: emailController,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
             obscureText: false,
@@ -35,6 +39,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             height: 24,
           ),
           CustomTextFormField(
+            controller: passwordController,
             keyboardType: TextInputType.text,
             textInputAction: TextInputAction.next,
             obscureText: true,
@@ -45,6 +50,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             height: 24,
           ),
           CustomTextFormField(
+            controller: confirmPasswordController,
             obscureText: true,
             keyboardType: TextInputType.text,
             textInputAction: TextInputAction.done,
@@ -59,7 +65,10 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                context.pushReplacement(AppRoutes.kAddInformationView);
+                BlocProvider.of<AuthCubit>(context).registerUser(
+                  email: emailController.text,
+                  password: passwordController.text,
+                );
               }
               autoValidateMode = AutovalidateMode.always;
               setState(

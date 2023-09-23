@@ -9,7 +9,8 @@ class CustomTextFormField extends StatelessWidget {
       required this.onSave,
       required this.keyboardType,
       required this.textInputAction,
-      required this.obscureText})
+      required this.obscureText,
+      this.controller})
       : super(key: key);
 
   final String hintText;
@@ -17,12 +18,14 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputAction textInputAction;
   final bool obscureText;
   final void Function(String?) onSave;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: TextFormField(
+        controller: controller,
         obscureText: obscureText,
         cursorColor: kPrimaryColor,
         onSaved: onSave,

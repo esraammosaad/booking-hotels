@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/custom_button.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../manager/auth_cubit/auth_cubit.dart';
 import 'custom_forget_password_widget.dart';
 import 'custom_text_form_field.dart';
 
@@ -15,6 +17,8 @@ class CustomSignInForm extends StatefulWidget {
 class _CustomSignInFormState extends State<CustomSignInForm> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +30,7 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
           Padding(
             padding: const EdgeInsets.only(top: 22.0, bottom: 24),
             child: CustomTextFormField(
+              controller: emailController,
               obscureText: false,
               textInputAction: TextInputAction.next,
               keyboardType: TextInputType.emailAddress,
@@ -36,6 +41,7 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
           Padding(
             padding: const EdgeInsets.only(bottom: 7),
             child: CustomTextFormField(
+              controller: passwordController,
               obscureText: true,
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.done,
@@ -49,6 +55,10 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
+                BlocProvider.of<AuthCubit>(context).loginUser(
+                  email: emailController.text,
+                  password: passwordController.text,
+                );
               }
               autoValidateMode = AutovalidateMode.always;
               setState(

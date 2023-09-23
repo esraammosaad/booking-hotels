@@ -2,6 +2,7 @@ import 'package:booking_hotels/features/authentication/presentation/views/forget
 import 'package:booking_hotels/features/authentication/presentation/views/new_password_view.dart';
 import 'package:booking_hotels/features/authentication/presentation/views/sign_in_view.dart';
 import 'package:booking_hotels/features/authentication/presentation/views/verify_code_view.dart';
+import 'package:booking_hotels/features/home/presentation/views/home_view.dart';
 import 'package:booking_hotels/features/splash/presentation/views/splash_view.dart';
 import 'package:booking_hotels/features/splash/presentation/views/widgets/custom_page_view.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,6 +19,7 @@ abstract class AppRoutes {
   static String kNewPasswordView = '/newPasswordView';
   static String kSignUpView = '/signUpView';
   static String kAddInformationView = '/addInformationView';
+  static String kHomeView = '/homeView';
 
   static final router = GoRouter(
     routes: [
@@ -29,18 +31,17 @@ abstract class AppRoutes {
         path: kPageView,
         pageBuilder: (context, state) {
           return CustomTransitionPage(
-            transitionDuration: const Duration(seconds: 5),
+              transitionDuration: const Duration(seconds: 5),
               key: state.pageKey,
               child: const CustomPageView(),
               transitionsBuilder: (context, animation, animationTwo, child) {
                 return FadeTransition(
-                  opacity:
-                      CurveTween(curve: Curves.easeInOutCirc).animate(animation),
+                  opacity: CurveTween(curve: Curves.easeInOutCirc)
+                      .animate(animation),
                   child: child,
                 );
               });
         },
-
       ),
       GoRoute(
         path: kSignInView,
@@ -51,14 +52,14 @@ abstract class AppRoutes {
               child: const SignInView(),
               transitionsBuilder: (context, animation, animationTwo, child) {
                 return SlideTransition(
-
-                  position: Tween(begin: const Offset(1,0),end: Offset.zero).animate(CurvedAnimation(parent: animation, curve: Curves.easeInExpo)),
+                  position: Tween(begin: const Offset(1, 0), end: Offset.zero)
+                      .animate(CurvedAnimation(
+                          parent: animation, curve: Curves.easeInExpo)),
                   child: child,
                 );
               });
         },
       ),
-
       GoRoute(
         path: kForgetPasswordView,
         pageBuilder: (context, state) {
@@ -68,8 +69,9 @@ abstract class AppRoutes {
               child: const ForgetPasswordView(),
               transitionsBuilder: (context, animation, animationTwo, child) {
                 return SlideTransition(
-
-                  position: Tween(begin: const Offset(0,1),end:Offset.zero ).animate( CurvedAnimation(curve: Curves.easeInExpo,parent: animation)),
+                  position: Tween(begin: const Offset(0, 1), end: Offset.zero)
+                      .animate(CurvedAnimation(
+                          curve: Curves.easeInExpo, parent: animation)),
                   child: child,
                 );
               });
@@ -84,8 +86,9 @@ abstract class AppRoutes {
               child: const VerifyCodeView(),
               transitionsBuilder: (context, animation, animationTwo, child) {
                 return SlideTransition(
-
-                  position: Tween(begin: const Offset(0,1),end:Offset.zero ).animate( CurvedAnimation(curve: Curves.easeInExpo,parent: animation)),
+                  position: Tween(begin: const Offset(0, 1), end: Offset.zero)
+                      .animate(CurvedAnimation(
+                          curve: Curves.easeInExpo, parent: animation)),
                   child: child,
                 );
               });
@@ -100,8 +103,9 @@ abstract class AppRoutes {
               child: const NewPasswordView(),
               transitionsBuilder: (context, animation, animationTwo, child) {
                 return SlideTransition(
-
-                  position: Tween(begin: const Offset(0,1),end:Offset.zero ).animate( CurvedAnimation(curve: Curves.easeInExpo,parent: animation)),
+                  position: Tween(begin: const Offset(0, 1), end: Offset.zero)
+                      .animate(CurvedAnimation(
+                          curve: Curves.easeInExpo, parent: animation)),
                   child: child,
                 );
               });
@@ -116,8 +120,9 @@ abstract class AppRoutes {
               child: const SignUpView(),
               transitionsBuilder: (context, animation, animationTwo, child) {
                 return SlideTransition(
-
-                  position: Tween(begin: const Offset(0,1),end:Offset.zero ).animate( CurvedAnimation(curve: Curves.easeInExpo,parent: animation)),
+                  position: Tween(begin: const Offset(0, 1), end: Offset.zero)
+                      .animate(CurvedAnimation(
+                          curve: Curves.easeInExpo, parent: animation)),
                   child: child,
                 );
               });
@@ -132,8 +137,26 @@ abstract class AppRoutes {
               child: const AddInformationView(),
               transitionsBuilder: (context, animation, animationTwo, child) {
                 return SlideTransition(
-
-                  position: Tween(begin: const Offset(0,1),end:Offset.zero ).animate( CurvedAnimation(curve: Curves.easeInExpo,parent: animation)),
+                  position: Tween(begin: const Offset(0, 1), end: Offset.zero)
+                      .animate(CurvedAnimation(
+                          curve: Curves.easeInExpo, parent: animation)),
+                  child: child,
+                );
+              });
+        },
+      ),
+      GoRoute(
+        path: kHomeView,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+              transitionDuration: const Duration(milliseconds: 500),
+              key: state.pageKey,
+              child: const HomeView(),
+              transitionsBuilder: (context, animation, animationTwo, child) {
+                return SlideTransition(
+                  position: Tween(begin: const Offset(0, 1), end: Offset.zero)
+                      .animate(CurvedAnimation(
+                          curve: Curves.easeInExpo, parent: animation)),
                   child: child,
                 );
               });
