@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "442125853338",
+    "project_id": "bookly-hotels-708ec",
+    "storage_bucket": "bookly-hotels-708ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442125853338:android:7b4c079660d7c7a76c7523",
+        "android_client_info": {
+          "package_name": "com.example.booking_hotels"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMCLJy3u3D4Nlb2uhFzUIUw2XTYyhdBkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
