@@ -7,7 +7,8 @@ import 'package:meta/meta.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit({this.emailController, this.passwordController}) : super(AuthInitial());
+  AuthCubit({this.emailController, this.passwordController})
+      : super(AuthInitial());
 
   TextEditingController? emailController;
   TextEditingController? passwordController;
@@ -19,7 +20,7 @@ class AuthCubit extends Cubit<AuthState> {
         email: email,
         password: password,
       );
-      //FirebaseAuth.instance.currentUser!.sendEmailVerification();
+      FirebaseAuth.instance.currentUser!.sendEmailVerification();
       emit(AuthSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -41,15 +42,15 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      emit(AuthSuccess());
-      // if (credential.user!.emailVerified) {
-      //   emit(AuthSuccess());
-      // } else {
-      //   emit(AuthFailure(
-      //       dialogType: DialogType.info,
-      //       title: 'Info',
-      //       desc: 'Please verify your email address.'));
-      // }
+      // emit(AuthSuccess());
+      if (credential.user!.emailVerified) {
+        emit(AuthSuccess());
+      } else {
+        emit(AuthFailure(
+            dialogType: DialogType.info,
+            title: 'Info',
+            desc: 'Please verify your email address.'));
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         emit(AuthFailure(

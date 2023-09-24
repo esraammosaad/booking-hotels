@@ -13,12 +13,14 @@ class CustomVerifyCodeListViewItem extends StatelessWidget {
       padding: const EdgeInsets.only(right: 16.0),
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.14,
-        height:MediaQuery.of(context).size.width * 0.14 ,
-
-
+        height: MediaQuery.of(context).size.width * 0.14,
         child: TextFormField(
+          onChanged: (value) {
+            if (value.length == 1) {
+              FocusScope.of(context).nextFocus();
+            }
+          },
           keyboardType: TextInputType.number,
-
           style: Styles.textStyle20
               .copyWith(color: Colors.black, fontWeight: FontWeight.w700),
           onSaved: (value) {},
@@ -28,23 +30,21 @@ class CustomVerifyCodeListViewItem extends StatelessWidget {
             }
             return null;
           },
-
           cursorColor: kPrimaryColor,
           decoration: InputDecoration(
             isDense: true,
             errorStyle: const TextStyle(fontSize: 0.5),
-
-
-
             hintText: '0',
             hintStyle: Styles.textStyle20,
-            contentPadding: const EdgeInsets.only(top: 25, left: 16,),
+            contentPadding: const EdgeInsets.only(
+              top: 25,
+              left: 16,
+            ),
             fillColor: kFieldColor,
             filled: true,
             border: buildOutlineInputBorder(),
             focusedBorder: buildOutlineInputBorder(),
             enabledBorder: buildOutlineInputBorder(),
-
             disabledBorder: buildOutlineInputBorder(),
           ),
         ),
@@ -54,8 +54,9 @@ class CustomVerifyCodeListViewItem extends StatelessWidget {
 
   OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
-
-      borderSide: const BorderSide(color: kFieldColor,),
+      borderSide: const BorderSide(
+        color: kFieldColor,
+      ),
       borderRadius: BorderRadius.circular(8),
     );
   }

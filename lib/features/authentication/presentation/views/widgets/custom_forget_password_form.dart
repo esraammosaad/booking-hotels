@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../constants.dart';
@@ -17,6 +18,7 @@ class CustomForgetPasswordForm extends StatefulWidget {
 class _CustomForgetPasswordFormState extends State<CustomForgetPasswordForm> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+  TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class _CustomForgetPasswordFormState extends State<CustomForgetPasswordForm> {
             height: 36,
           ),
           CustomTextFormField(
+            controller: emailController,
             obscureText: false,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.done,
@@ -40,9 +43,10 @@ class _CustomForgetPasswordFormState extends State<CustomForgetPasswordForm> {
           ),
           CustomButton(
             text: 'Continue',
-            onPressed: () {
+            onPressed: () async {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
+                //await FirebaseAuth.instance.sendPasswordResetEmail(email: emailController.text);
                 context.push(AppRoutes.kVerifyCodeView);
               }
               autoValidateMode = AutovalidateMode.always;
