@@ -14,50 +14,70 @@ class CustomNewPasswordForm extends StatefulWidget {
 class _CustomNewPasswordFormState extends State<CustomNewPasswordForm> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: formKey,
-        autovalidateMode: autoValidateMode,
-        child: Column(
-          children: [
-            CustomTextFormField(
-              obscureText: true,
-              keyboardType: TextInputType.text,
-              textInputAction: TextInputAction.next,
-              hintText: 'New Password',
-              onSave: (value) {},
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            CustomTextFormField(
-              obscureText: true,
-              keyboardType: TextInputType.text,
-              textInputAction: TextInputAction.done,
-              hintText: 'Confirm Password',
-              onSave: (value) {},
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            CustomButton(
-              text: 'Save',
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  formKey.currentState!.save();
-                }
-                autoValidateMode = AutovalidateMode.always;
-                setState(
-                  () {},
-                );
-              },
-              textStyle: Styles.textStyle20
-                  .copyWith(color: Colors.white, fontWeight: FontWeight.w700),
-              color: kPrimaryColor,
-            ),
-          ],
-        ));
+      key: formKey,
+      autovalidateMode: autoValidateMode,
+      child: Column(
+        children: [
+          CustomTextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Password must not be empty';
+              }
+              return null;
+            },
+            controller: passwordController,
+            obscureText: true,
+            keyboardType: TextInputType.text,
+            textInputAction: TextInputAction.next,
+            hintText: 'New Password',
+            onSave: (value) {},
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          CustomTextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Please enter re-password';
+              }
+              if (passwordController.text != confirmPasswordController.text) {
+                return "Please make sure your passwords match";
+              }
+              return null;
+            },
+            controller: confirmPasswordController,
+            obscureText: true,
+            keyboardType: TextInputType.text,
+            textInputAction: TextInputAction.done,
+            hintText: 'Confirm Password',
+            onSave: (value) {},
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          CustomButton(
+            text: 'Save',
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              }
+              autoValidateMode = AutovalidateMode.always;
+              setState(
+                () {},
+              );
+            },
+            textStyle: Styles.textStyle20
+                .copyWith(color: Colors.white, fontWeight: FontWeight.w700),
+            color: kPrimaryColor,
+          ),
+        ],
+      ),
+    );
   }
 }

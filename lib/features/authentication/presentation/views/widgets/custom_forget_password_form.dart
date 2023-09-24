@@ -31,6 +31,12 @@ class _CustomForgetPasswordFormState extends State<CustomForgetPasswordForm> {
             height: 36,
           ),
           CustomTextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Email address must not be empty';
+              }
+              return null;
+            },
             controller: emailController,
             obscureText: false,
             keyboardType: TextInputType.emailAddress,

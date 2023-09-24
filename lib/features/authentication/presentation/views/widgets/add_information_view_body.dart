@@ -7,8 +7,15 @@ import '../../../../../core/utils/styles.dart';
 import 'custom_add_photo_widget.dart';
 import 'custom_app_bar.dart';
 
-class AddInformationViewBody extends StatelessWidget {
+class AddInformationViewBody extends StatefulWidget {
   const AddInformationViewBody({Key? key}) : super(key: key);
+
+  @override
+  State<AddInformationViewBody> createState() => _AddInformationViewBodyState();
+}
+
+class _AddInformationViewBodyState extends State<AddInformationViewBody> {
+  var selectedGender = "Male";
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +34,12 @@ class AddInformationViewBody extends StatelessWidget {
                   height: 25,
                 ),
                 CustomTextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Name must not be empty';
+                    }
+                    return null;
+                  },
                   obscureText: false,
                   keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.next,
@@ -37,6 +50,12 @@ class AddInformationViewBody extends StatelessWidget {
                   height: 24,
                 ),
                 CustomTextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Phone number must not be empty';
+                    }
+                    return null;
+                  },
                   obscureText: false,
                   keyboardType: TextInputType.phone,
                   textInputAction: TextInputAction.next,
@@ -47,6 +66,12 @@ class AddInformationViewBody extends StatelessWidget {
                   height: 24,
                 ),
                 CustomTextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Country must not be empty';
+                    }
+                    return null;
+                  },
                   obscureText: false,
                   keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.next,
@@ -56,13 +81,66 @@ class AddInformationViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 24,
                 ),
-                CustomTextFormField(
-                  obscureText: false,
-                  keyboardType: TextInputType.text,
-                  textInputAction: TextInputAction.done,
-                  hintText: 'Gender',
-                  onSave: (value) {},
+                Container(
+                  decoration: BoxDecoration(
+                    color: kFieldColor,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: const Color(0x0D000000),
+                    ),
+                  ),
+                  width: double.infinity,
+                  margin: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: DropdownButton(
+                      style: Styles.textStyle20.copyWith(
+                        color: const Color(0x80000000),
+                        fontWeight: FontWeight.w400,
+                      ),
+                      underline: const Text(""),
+                      icon: Image.asset(
+                        "assets/icons/dropDownIcon.png",
+                        color: const Color(0x80000000),
+                      ),
+                      isExpanded: true,
+                      borderRadius: BorderRadius.circular(8),
+                      padding: const EdgeInsets.only(
+                          top: 8, bottom: 8, left: 25, right: 25),
+                      hint: Text(
+                        "Gender",
+                        style: Styles.textStyle20.copyWith(
+                          color: const Color(0x80000000),
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      items: ["Male", "Female"]
+                          .map((e) => DropdownMenuItem(
+                                value: e,
+                                child: Text(e.toString()),
+                              ))
+                          .toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          selectedGender = value!;
+                        });
+                      },
+                      value: selectedGender),
                 ),
+                const SizedBox(
+                  height: 24,
+                ),
+                // CustomTextFormField(
+                //   validator: (value) {
+                //     if (value!.isEmpty) {
+                //       return 'Gender must not be empty';
+                //     }
+                //     return null;
+                //   },
+                //   obscureText: false,
+                //   keyboardType: TextInputType.text,
+                //   textInputAction: TextInputAction.done,
+                //   hintText: 'Gender',
+                //   onSave: (value) {},
+                // ),
                 const SizedBox(
                   height: 39,
                 ),

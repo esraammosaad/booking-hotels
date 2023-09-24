@@ -10,7 +10,8 @@ class CustomTextFormField extends StatelessWidget {
       required this.keyboardType,
       required this.textInputAction,
       required this.obscureText,
-      this.controller})
+      this.controller,
+      required this.validator})
       : super(key: key);
 
   final String hintText;
@@ -19,6 +20,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final void Function(String?) onSave;
   final TextEditingController? controller;
+  final String? Function(String?) validator;
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +33,7 @@ class CustomTextFormField extends StatelessWidget {
         onSaved: onSave,
         keyboardType: keyboardType,
         textInputAction: textInputAction,
-        validator: (value) {
-          if (value!.isEmpty) {
-            return 'please enter a valid value';
-          }
-          return null;
-        },
+        validator: validator,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.only(top: 16, bottom: 16, left: 25),
           hintText: hintText,

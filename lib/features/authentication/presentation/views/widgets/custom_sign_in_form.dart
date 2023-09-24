@@ -30,6 +30,12 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
           Padding(
             padding: const EdgeInsets.only(top: 22.0, bottom: 24),
             child: CustomTextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Email address must not be empty';
+                }
+                return null;
+              },
               controller: emailController,
               obscureText: false,
               textInputAction: TextInputAction.next,
@@ -41,6 +47,12 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
           Padding(
             padding: const EdgeInsets.only(bottom: 7),
             child: CustomTextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Password must not be empty';
+                }
+                return null;
+              },
               controller: passwordController,
               obscureText: true,
               keyboardType: TextInputType.text,

@@ -28,6 +28,12 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
       child: Column(
         children: [
           CustomTextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Email address must not be empty';
+              }
+              return null;
+            },
             controller: emailController,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
@@ -39,6 +45,12 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             height: 24,
           ),
           CustomTextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Password must not be empty';
+              }
+              return null;
+            },
             controller: passwordController,
             keyboardType: TextInputType.text,
             textInputAction: TextInputAction.next,
@@ -50,6 +62,15 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             height: 24,
           ),
           CustomTextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Please enter re-password';
+              }
+              if (passwordController.text != confirmPasswordController.text) {
+                return "Please make sure your passwords match";
+              }
+              return null;
+            },
             controller: confirmPasswordController,
             obscureText: true,
             keyboardType: TextInputType.text,
