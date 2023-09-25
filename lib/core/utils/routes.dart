@@ -5,6 +5,7 @@ import 'package:booking_hotels/features/authentication/presentation/views/verify
 import 'package:booking_hotels/features/home/presentation/views/home_view.dart';
 import 'package:booking_hotels/features/splash/presentation/views/splash_view.dart';
 import 'package:booking_hotels/features/splash/presentation/views/widgets/custom_page_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/authentication/presentation/views/add_information_view.dart';
@@ -24,7 +25,11 @@ abstract class AppRoutes {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const SplashView(),
+        builder: (context, state) =>
+            (FirebaseAuth.instance.currentUser != null &&
+                    FirebaseAuth.instance.currentUser!.emailVerified)
+                ? const HomeView()
+                : const SplashView(),
       ),
       GoRoute(
         path: kPageView,

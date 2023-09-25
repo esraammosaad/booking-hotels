@@ -10,5 +10,13 @@ class Assets {
   static const String imagesSplashOne = 'assets/images/splash_one.png';
   static const String imagesSplashThree = 'assets/images/splash_three.png';
   static const String imagesSplashTwo = 'assets/images/splash_two.png';
-
+  static const String imagesUser = 'assets/images/user.png';
+  static const String iconsLocation = 'assets/icons/ion_location-outline.png';
+  static const String iconsNotification =
+      'assets/icons/carbon_notification-new.png';
+  static const String iconsSearch = 'assets/icons/search.png';
+  static const String imagesEgypt = 'assets/images/egypt.png';
+  static const String imagesNyork = 'assets/images/nyork.png';
+  static const String imagesIndea = 'assets/images/indea.png';
+  static const String imagesDubai = 'assets/images/dubai.png';
 }
