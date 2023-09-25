@@ -7,7 +7,6 @@ import 'package:booking_hotels/features/splash/presentation/views/splash_view.da
 import 'package:booking_hotels/features/splash/presentation/views/widgets/custom_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../features/authentication/presentation/views/add_information_view.dart';
 import '../../features/authentication/presentation/views/sign_up_view.dart';
 
@@ -83,7 +82,7 @@ abstract class AppRoutes {
           return CustomTransitionPage(
               transitionDuration: const Duration(milliseconds: 500),
               key: state.pageKey,
-              child: const VerifyCodeView(),
+              child: VerifyCodeView(phone: state.extra.toString()),
               transitionsBuilder: (context, animation, animationTwo, child) {
                 return SlideTransition(
                   position: Tween(begin: const Offset(0, 1), end: Offset.zero)

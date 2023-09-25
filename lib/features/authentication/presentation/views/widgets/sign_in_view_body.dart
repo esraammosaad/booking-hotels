@@ -37,7 +37,11 @@ class SignInViewBody extends StatelessWidget {
                     context.push(AppRoutes.kHomeView);
                   } else if (state is AuthFailure) {
                     showAwesomeDialog(
-                        context, state.dialogType, state.title, state.desc);
+                      context,
+                      state.dialogType,
+                      state.title,
+                      state.desc,
+                    );
                   }
                 },
                 child: const CustomSignInForm(),
@@ -48,9 +52,10 @@ class SignInViewBody extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45),
                 child: CustomTextSpan(
-                    text: 'Don`t have an account?  ',
-                    buttonText: 'sign Up',
-                    onTap: () => context.push(AppRoutes.kSignUpView)),
+                  text: 'Don`t have an account?  ',
+                  buttonText: 'sign Up',
+                  onTap: () => context.push(AppRoutes.kSignUpView),
+                ),
               ),
               const SizedBox(
                 height: 50,
@@ -90,6 +95,19 @@ class SignInViewBody extends StatelessWidget {
                 child: CustomSignInContainer(
                   text: "Continue with google",
                   icon: Logo(Logos.google),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  context.push(AppRoutes.kForgetPasswordView);
+                },
+                child: const CustomSignInContainer(
+                  text: 'Continue with phone',
+                  icon: FaIcon(
+                    FontAwesomeIcons.phone,
+                    size: 40,
+                    color: Color(0xff1877F2),
+                  ),
                 ),
               ),
             ],

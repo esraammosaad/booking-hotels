@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import '../../../../../constants.dart';
-import '../../../../../core/utils/custom_button.dart';
 import '../../../../../core/utils/custom_decoration.dart';
-import '../../../../../core/utils/routes.dart';
 import '../../../../../core/utils/styles.dart';
 import 'custom_back_icon.dart';
 import 'custom_verify_code_form.dart';
-import 'custom_verify_code_list_view.dart';
-import 'custom_verify_code_list_view_item.dart';
 
 class VerifyCodeViewBody extends StatelessWidget {
-  const VerifyCodeViewBody({Key? key}) : super(key: key);
+  const VerifyCodeViewBody({Key? key, required this.phone}) : super(key: key);
+  final String phone;
 
   @override
   Widget build(BuildContext context) {
@@ -43,20 +39,20 @@ class VerifyCodeViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 36,
                 ),
-                const CustomVerifyCodeForm(),
-
+                CustomVerifyCodeForm(phone: phone),
                 const SizedBox(
                   height: 39,
                 ),
                 Text(
                   'Resend code in 00:59',
                   style: Styles.textStyle20.copyWith(
-                      color: Colors.black, fontWeight: FontWeight.w600),
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                  ),
                 )
               ],
             ),
           ),
-
           const SliverFillRemaining(
             fillOverscroll: false,
             hasScrollBody: false,
@@ -64,7 +60,6 @@ class VerifyCodeViewBody extends StatelessWidget {
               height: 50,
             ),
           ),
-
           const SliverToBoxAdapter(
             child: CustomDecoration(),
           ),
@@ -73,8 +68,3 @@ class VerifyCodeViewBody extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

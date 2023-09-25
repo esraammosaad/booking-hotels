@@ -106,6 +106,19 @@ class SignUpViewBody extends StatelessWidget {
                   icon: Logo(Logos.google),
                 ),
               ),
+              GestureDetector(
+                onTap: () {
+                  context.push(AppRoutes.kForgetPasswordView);
+                },
+                child: const CustomSignInContainer(
+                  text: 'Continue with phone',
+                  icon: FaIcon(
+                    FontAwesomeIcons.phone,
+                    size: 40,
+                    color: Color(0xff1877F2),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

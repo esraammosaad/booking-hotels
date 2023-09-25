@@ -61,7 +61,7 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
               onSave: (value) {},
             ),
           ),
-          const CustomForgetPasswordWidget(),
+          CustomForgetPasswordWidget(emailController: emailController),
           CustomButton(
             text: 'Sign in',
             onPressed: () {

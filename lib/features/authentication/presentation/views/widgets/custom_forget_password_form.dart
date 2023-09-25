@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../constants.dart';
@@ -18,7 +17,7 @@ class CustomForgetPasswordForm extends StatefulWidget {
 class _CustomForgetPasswordFormState extends State<CustomForgetPasswordForm> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
-  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +32,15 @@ class _CustomForgetPasswordFormState extends State<CustomForgetPasswordForm> {
           CustomTextFormField(
             validator: (value) {
               if (value!.isEmpty) {
-                return 'Email address must not be empty';
+                return 'Phone number must not be empty';
               }
               return null;
             },
-            controller: emailController,
+            controller: phoneController,
             obscureText: false,
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: TextInputType.phone,
             textInputAction: TextInputAction.done,
-            hintText: 'Email',
+            hintText: 'Phone Number',
             onSave: (value) {},
           ),
           const SizedBox(
@@ -52,8 +51,9 @@ class _CustomForgetPasswordFormState extends State<CustomForgetPasswordForm> {
             onPressed: () async {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                //await FirebaseAuth.instance.sendPasswordResetEmail(email: emailController.text);
-                context.push(AppRoutes.kVerifyCodeView);
+
+                context.push(AppRoutes.kVerifyCodeView,
+                    extra: {"phone": phoneController.text});
               }
               autoValidateMode = AutovalidateMode.always;
               setState(

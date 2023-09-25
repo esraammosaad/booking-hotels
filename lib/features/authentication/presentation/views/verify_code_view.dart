@@ -2,12 +2,16 @@ import 'package:booking_hotels/features/authentication/presentation/views/widget
 import 'package:flutter/material.dart';
 
 class VerifyCodeView extends StatelessWidget {
-  const VerifyCodeView({Key? key}) : super(key: key);
+  const VerifyCodeView({
+    Key? key,
+    required this.phone,
+  }) : super(key: key);
+  final String phone;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: VerifyCodeViewBody(),
+    return Scaffold(
+      body: VerifyCodeViewBody(phone: phone),
     );
   }
 }

@@ -5,7 +5,14 @@ import '../../../../../core/utils/styles.dart';
 class CustomVerifyCodeListViewItem extends StatelessWidget {
   const CustomVerifyCodeListViewItem({
     super.key,
+    required this.controller,
+    required this.first,
+    required this.last,
   });
+
+  final TextEditingController controller;
+  final bool first;
+  final bool last;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +22,12 @@ class CustomVerifyCodeListViewItem extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.14,
         height: MediaQuery.of(context).size.width * 0.14,
         child: TextFormField(
+          controller: controller,
           onChanged: (value) {
-            if (value.length == 1) {
+            if (value.isNotEmpty && last == false) {
               FocusScope.of(context).nextFocus();
+            } else if (value.isEmpty && first == false) {
+              FocusScope.of(context).previousFocus();
             }
           },
           keyboardType: TextInputType.number,
