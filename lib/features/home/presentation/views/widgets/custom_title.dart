@@ -20,7 +20,13 @@ class CustomTitle extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: Styles.textStyle24),
+          Text(
+            title,
+            style: Styles.textStyle20.copyWith(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
           GestureDetector(
             onTap: () {},
             child: Text(

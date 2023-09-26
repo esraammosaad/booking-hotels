@@ -9,6 +9,7 @@ import '../../../../../generated/assets.dart';
 import '../../../data/models/country_model.dart';
 import 'custom_list_view_item.dart';
 import 'custom_search_bar.dart';
+import 'custom_slider.dart';
 import 'custom_title.dart';
 
 class HomeViewBody extends StatefulWidget {
@@ -52,6 +53,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           ),
         ),
         const CustomTitle(title: "Popular", seeAll: "See All"),
+        const SizedBox(
+          height: 14,
+        ),
+        const CustomSlider(),
+        const CustomTitle(title: "Recommended", seeAll: "See All"),
         Center(
           child: GestureDetector(
             onTap: () async {

@@ -19,4 +19,5 @@ class Assets {
   static const String imagesNyork = 'assets/images/nyork.png';
   static const String imagesIndea = 'assets/images/indea.png';
   static const String imagesDubai = 'assets/images/dubai.png';
+  static const String imagesSlide = 'assets/images/slide.png';
 }
