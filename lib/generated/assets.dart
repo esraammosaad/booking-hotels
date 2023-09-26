@@ -20,4 +20,9 @@ class Assets {
   static const String imagesIndea = 'assets/images/indea.png';
   static const String imagesDubai = 'assets/images/dubai.png';
   static const String imagesSlide = 'assets/images/slide.png';
+  static const String iconsFavourite = 'assets/icons/favourite.png';
+  static const String imagesAman = 'assets/images/aman.png';
+  static const String imagesLuxury = 'assets/images/luxury.png';
+  static const String imagesSteigenberger = 'assets/images/steigenberger.png';
+  static const String imagesSonsta = 'assets/images/sonsta.png';
 }

@@ -6,10 +6,12 @@ class CustomTitle extends StatelessWidget {
     super.key,
     required this.title,
     required this.seeAll,
+    required this.onTap,
   });
 
   final String title;
   final String seeAll;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class CustomTitle extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: onTap,
             child: Text(
               seeAll,
               style: Styles.textStyle16.copyWith(

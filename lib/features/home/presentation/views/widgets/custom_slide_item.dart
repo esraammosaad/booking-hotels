@@ -17,12 +17,19 @@ class CustomSlideItem extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(
-            left: MediaQuery.of(context).size.width * 0.02,
-            top: MediaQuery.of(context).size.height * 0.1,
+            top: MediaQuery.of(context).size.height * 0.015,
+            right: MediaQuery.of(context).size.width * 0.04,
+            left: MediaQuery.of(context).size.width * 0.04,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Image.asset(Assets.iconsFavourite),
+                ],
+              ),
               Text(
                 "The west Maldives hotel",
                 style: Styles.textStyle18.copyWith(
@@ -53,3 +60,6 @@ class CustomSlideItem extends StatelessWidget {
     );
   }
 }
+//
+// left: MediaQuery.of(context).size.width * 0.02,
+// top: MediaQuery.of(context).size.height * 0.1,

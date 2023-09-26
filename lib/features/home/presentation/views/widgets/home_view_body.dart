@@ -7,6 +7,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../../core/utils/routes.dart';
 import '../../../../../generated/assets.dart';
 import '../../../data/models/country_model.dart';
+import '../../../data/models/hotel_model.dart';
+import 'custom_card_item.dart';
 import 'custom_list_view_item.dart';
 import 'custom_search_bar.dart';
 import 'custom_slider.dart';
@@ -21,10 +23,49 @@ class HomeViewBody extends StatefulWidget {
 
 class _HomeViewBodyState extends State<HomeViewBody> {
   List<CountryModel> countryList = [
-    CountryModel(image: Assets.imagesEgypt, name: "Egypt"),
-    CountryModel(image: Assets.imagesNyork, name: "Nyork"),
-    CountryModel(image: Assets.imagesIndea, name: "indea"),
-    CountryModel(image: Assets.imagesDubai, name: "Dubai"),
+    CountryModel(
+      image: Assets.imagesEgypt,
+      name: "Egypt",
+    ),
+    CountryModel(
+      image: Assets.imagesNyork,
+      name: "Nyork",
+    ),
+    CountryModel(
+      image: Assets.imagesIndea,
+      name: "indea",
+    ),
+    CountryModel(
+      image: Assets.imagesDubai,
+      name: "Dubai",
+    ),
+  ];
+
+  List<HotelModel> hotelList = [
+    HotelModel(
+      image: Assets.imagesAman,
+      hotelName: "Aman New York",
+      country: "New York, USA",
+      price: "\$50",
+    ),
+    HotelModel(
+      image: Assets.imagesLuxury,
+      hotelName: "luxury Resort Hotel",
+      country: "Grand Hyatt Dubai",
+      price: "\$80",
+    ),
+    HotelModel(
+      image: Assets.imagesSteigenberger,
+      hotelName: "Steigenberger Aqua",
+      country: "Hurghada, Egypt",
+      price: "\$20",
+    ),
+    HotelModel(
+      image: Assets.imagesSonsta,
+      hotelName: "Sonsta Hotel,Cairo",
+      country: "Cairo, Egypt",
+      price: "\$99",
+    ),
   ];
 
   @override
@@ -52,12 +93,87 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             ),
           ),
         ),
-        const CustomTitle(title: "Popular", seeAll: "See All"),
+        CustomTitle(
+          title: "Popular",
+          seeAll: "See All",
+          onTap: () {},
+        ),
         const SizedBox(
           height: 14,
         ),
         const CustomSlider(),
-        const CustomTitle(title: "Recommended", seeAll: "See All"),
+        CustomTitle(
+          title: "Recommended",
+          seeAll: "See All",
+          onTap: () {},
+        ),
+        const SizedBox(
+          height: 14,
+        ),
+        ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return CustomCardItem(
+              image: hotelList[index].image,
+              hotelName: hotelList[index].hotelName,
+              country: hotelList[index].country,
+              price: hotelList[index].price,
+            );
+          },
+          separatorBuilder: (context, index) => const SizedBox(height: 14),
+          itemCount: 2,
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        CustomTitle(
+          title: "Resently booked",
+          seeAll: "See All",
+          onTap: () {},
+        ),
+        const SizedBox(
+          height: 14,
+        ),
+        ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return CustomCardItem(
+              image: hotelList[index].image,
+              hotelName: hotelList[index].hotelName,
+              country: hotelList[index].country,
+              price: hotelList[index].price,
+            );
+          },
+          separatorBuilder: (context, index) => const SizedBox(height: 14),
+          itemCount: 3,
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        CustomTitle(
+          title: "For You",
+          seeAll: "See All",
+          onTap: () {},
+        ),
+        const SizedBox(
+          height: 14,
+        ),
+        ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return CustomCardItem(
+              image: hotelList[index].image,
+              hotelName: hotelList[index].hotelName,
+              country: hotelList[index].country,
+              price: hotelList[index].price,
+            );
+          },
+          separatorBuilder: (context, index) => const SizedBox(height: 14),
+          itemCount: 2,
+        ),
         Center(
           child: GestureDetector(
             onTap: () async {
