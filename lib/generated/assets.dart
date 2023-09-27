@@ -25,4 +25,9 @@ class Assets {
   static const String imagesLuxury = 'assets/images/luxury.png';
   static const String imagesSteigenberger = 'assets/images/steigenberger.png';
   static const String imagesSonsta = 'assets/images/sonsta.png';
+  static const String iconsHome = 'assets/icons/home.png';
+  static const String iconsTicketStar = 'assets/icons/Ticket Star.png';
+  static const String iconsHeart = 'assets/icons/heart.png';
+  static const String iconsProfile = 'assets/icons/profile.png';
+  static const String iconsRectangle = 'assets/icons/Rectangle.png';
 }
