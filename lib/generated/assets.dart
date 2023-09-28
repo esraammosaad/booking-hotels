@@ -31,4 +31,5 @@ class Assets {
   static const String iconsProfile = 'assets/icons/profile.png';
   static const String iconsRectangle = 'assets/icons/Rectangle.png';
   static const String iconsBack = 'assets/icons/back.png';
+  static const String iconsClose = 'assets/icons/Close Square.png';
 }
