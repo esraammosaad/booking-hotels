@@ -3,6 +3,7 @@ import 'package:booking_hotels/features/authentication/presentation/views/new_pa
 import 'package:booking_hotels/features/authentication/presentation/views/sign_in_view.dart';
 import 'package:booking_hotels/features/authentication/presentation/views/verify_code_view.dart';
 import 'package:booking_hotels/features/home/presentation/views/home_view.dart';
+import 'package:booking_hotels/features/search/presentation/views/search_view.dart';
 import 'package:booking_hotels/features/splash/presentation/views/splash_view.dart';
 import 'package:booking_hotels/features/splash/presentation/views/widgets/custom_page_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -20,6 +21,7 @@ abstract class AppRoutes {
   static String kSignUpView = '/signUpView';
   static String kAddInformationView = '/addInformationView';
   static String kHomeView = '/homeView';
+  static String kSearchView = '/searchView';
 
   static final router = GoRouter(
     routes: [
@@ -161,6 +163,23 @@ abstract class AppRoutes {
                   position: Tween(begin: const Offset(0, 1), end: Offset.zero)
                       .animate(CurvedAnimation(
                           curve: Curves.easeInExpo, parent: animation)),
+                  child: child,
+                );
+              });
+        },
+      ),
+      GoRoute(
+        path: kSearchView,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+              transitionDuration: const Duration(milliseconds: 500),
+              key: state.pageKey,
+              child: const SearchView(),
+              transitionsBuilder: (context, animation, animationTwo, child) {
+                return SlideTransition(
+                  position: Tween(begin: const Offset(0, 1), end: Offset.zero)
+                      .animate(CurvedAnimation(
+                      curve: Curves.easeInExpo, parent: animation)),
                   child: child,
                 );
               });

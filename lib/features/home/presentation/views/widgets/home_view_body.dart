@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../../core/utils/routes.dart';
+import '../../../../../core/utils/styles.dart';
 import '../../../../../generated/assets.dart';
 import '../../../data/models/country_model.dart';
 import '../../../data/models/hotel_model.dart';
@@ -73,7 +74,21 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     return ListView(
       children: [
         const CustomHomeAppBar(),
-        const CustomSearchBar(),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.05),
+          child: CustomSearchBar(
+            onTap: () {
+              context.push(AppRoutes.kSearchView);
+            },
+            label: Text(
+              'search here...',
+              style: Styles.textStyle20.copyWith(
+                color: Colors.black.withOpacity(0.5),
+              ),
+            ),
+          ),
+        ),
         Padding(
           padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
           child: SizedBox(
