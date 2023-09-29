@@ -40,7 +40,11 @@ class SignUpViewBody extends StatelessWidget {
                       context.pushReplacement(AppRoutes.kAddInformationView);
                     } else if (state is AuthFailure) {
                       showAwesomeDialog(
-                          context, state.dialogType, state.title, state.desc);
+                        context,
+                        state.dialogType,
+                        state.title,
+                        state.desc,
+                      );
                     }
                   },
                   child: const CustomSignUpForm()),
@@ -50,9 +54,10 @@ class SignUpViewBody extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45),
                 child: CustomTextSpan(
-                    text: 'Already have an account?  ',
-                    buttonText: 'sign in',
-                    onTap: () => context.push(AppRoutes.kSignInView)),
+                  text: 'Already have an account?  ',
+                  buttonText: 'sign in',
+                  onTap: () => context.push(AppRoutes.kSignInView),
+                ),
               ),
               const SizedBox(
                 height: 50,
@@ -68,12 +73,13 @@ class SignUpViewBody extends StatelessWidget {
                   // return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
                 },
                 child: const CustomSignInContainer(
-                    text: 'Continue with facebook',
-                    icon: FaIcon(
-                      FontAwesomeIcons.facebook,
-                      size: 40,
-                      color: Color(0xff1877F2),
-                    )),
+                  text: 'Continue with facebook',
+                  icon: FaIcon(
+                    FontAwesomeIcons.facebook,
+                    size: 40,
+                    color: Color(0xff1877F2),
+                  ),
+                ),
               ),
               GestureDetector(
                 onTap: () async {

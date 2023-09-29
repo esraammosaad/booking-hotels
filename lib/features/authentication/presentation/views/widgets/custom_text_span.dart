@@ -18,7 +18,8 @@ class CustomTextSpan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text.rich(TextSpan(
+      child: Text.rich(
+        TextSpan(
           text: text,
           style: Styles.textStyle20.copyWith(
             fontWeight: FontWeight.w500,
@@ -33,7 +34,9 @@ class CustomTextSpan extends StatelessWidget {
                 color: kPrimaryColor,
               ),
             )
-          ])),
+          ],
+        ),
+      ),
     );
   }
 }

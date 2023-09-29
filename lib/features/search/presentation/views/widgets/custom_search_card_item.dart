@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../../../generated/assets.dart';
 
 class CustomSearchCardItem extends StatelessWidget {
   const CustomSearchCardItem({
@@ -11,12 +9,14 @@ class CustomSearchCardItem extends StatelessWidget {
     required this.hotelName,
     required this.country,
     required this.price,
+    required this.favouriteImage,
   });
 
   final String image;
   final String hotelName;
   final String country;
   final String price;
+  final String favouriteImage;
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +49,9 @@ class CustomSearchCardItem extends StatelessWidget {
                 children: [
                   Image.asset(image, height: 96),
                   Positioned(
-                    top: 8,
-                    right: 14,
-                    child: Image.asset(Assets.iconsFavourite),
+                    top: 9,
+                    right: 9,
+                    child: Image.asset(favouriteImage),
                   ),
                 ],
               ),
@@ -60,7 +60,7 @@ class CustomSearchCardItem extends StatelessWidget {
               ),
               Text(
                 hotelName,
-                style: Styles.textStyle20.copyWith(
+                style: Styles.textStyle18.copyWith(
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
                 ),

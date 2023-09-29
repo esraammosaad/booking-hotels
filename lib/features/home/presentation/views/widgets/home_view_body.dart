@@ -1,6 +1,5 @@
 import 'package:booking_hotels/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -120,7 +119,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         CustomTitle(
           title: "Recommended",
           seeAll: "See All",
-          onTap: () {},
+          onTap: () {
+            context.push(AppRoutes.kRecommendedView);
+          },
         ),
         const SizedBox(
           height: 14,
@@ -136,7 +137,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               price: hotelList[index].price,
             );
           },
-          separatorBuilder: (context, index) => const SizedBox(height: 14),
+          separatorBuilder: (context, index) => const SizedBox(height: 7),
           itemCount: 2,
         ),
         const SizedBox(
@@ -161,7 +162,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               price: hotelList[index].price,
             );
           },
-          separatorBuilder: (context, index) => const SizedBox(height: 14),
+          separatorBuilder: (context, index) => const SizedBox(height: 7),
           itemCount: 3,
         ),
         const SizedBox(
@@ -186,7 +187,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               price: hotelList[index].price,
             );
           },
-          separatorBuilder: (context, index) => const SizedBox(height: 14),
+          separatorBuilder: (context, index) => const SizedBox(height: 7),
           itemCount: 2,
         ),
         Center(

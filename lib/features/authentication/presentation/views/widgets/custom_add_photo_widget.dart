@@ -50,7 +50,11 @@ class _CustomAddPhotoWidgetState extends State<CustomAddPhotoWidget> {
               onPressed: () async {
                 await getImage();
               },
-              icon: const Icon(Icons.edit, color: Colors.white, size: 17),
+              icon: const Icon(
+                Icons.edit,
+                color: Colors.white,
+                size: 17,
+              ),
             ),
           ),
         )

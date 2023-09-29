@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../core/utils/styles.dart';
 import 'custom_back_icon.dart';
+
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
@@ -18,11 +18,11 @@ class CustomAppBar extends StatelessWidget {
         ),
         Expanded(
             child: Text(
-              'Add Your Information',
-              style: Styles.textStyle20
-                  .copyWith(color: Colors.black, fontWeight: FontWeight.w700),
-              textAlign: TextAlign.center,
-            ))
+          'Add Your Information',
+          style: Styles.textStyle20
+              .copyWith(color: Colors.black, fontWeight: FontWeight.w700),
+          textAlign: TextAlign.center,
+        ))
       ],
     );
   }

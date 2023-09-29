@@ -7,13 +7,18 @@ class CustomSignInContainer extends StatelessWidget {
     required this.text,
     required this.icon,
   });
+
   final String text;
   final Widget icon;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+      padding: const EdgeInsets.only(
+        left: 25,
+        right: 25,
+        bottom: 20,
+      ),
       child: Container(
         height: 56,
         width: MediaQuery.of(context).size.width,
@@ -28,18 +33,19 @@ class CustomSignInContainer extends StatelessWidget {
               child: icon,
             ),
             Expanded(
-                child: Padding(
-              padding: const EdgeInsets.only(top: 10.0, bottom: 10),
-              child: Text(
-                text,
-                style: Styles.textStyle20.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10.0, bottom: 10),
+                child: Text(
+                  text,
+                  style: Styles.textStyle20.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                 ),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
               ),
-            ))
+            )
           ],
         ),
       ),

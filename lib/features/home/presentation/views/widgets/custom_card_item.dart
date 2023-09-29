@@ -81,8 +81,9 @@ class CustomCardItem extends StatelessWidget {
                           child: Text(
                             "(4.5/5)",
                             style: Styles.textStyle16.copyWith(
-                                color: kPrimaryColor,
-                                fontWeight: FontWeight.w600),
+                              color: kPrimaryColor,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         )
                       ],

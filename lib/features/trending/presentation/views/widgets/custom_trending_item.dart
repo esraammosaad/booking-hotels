@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../core/utils/styles.dart';
 import '../../../../../generated/assets.dart';
 
@@ -18,7 +17,8 @@ class CustomTrendingItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05),
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.05),
       child: Stack(
         children: [
           Image.asset(image),
@@ -28,7 +28,7 @@ class CustomTrendingItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 17,  right: 13),
+                  padding: const EdgeInsets.only(top: 17, right: 13),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -37,17 +37,22 @@ class CustomTrendingItem extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height*0.04,
+                  height: MediaQuery.of(context).size.height * 0.04,
                 ),
-                Text(title, style: Styles.textStyle24.copyWith(
-                    color: Colors.white
-                ), overflow: TextOverflow.ellipsis,maxLines: 1),
-                SizedBox(
+                Text(title,
+                    style: Styles.textStyle24.copyWith(color: Colors.white),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1),
+                const SizedBox(
                   height: 7,
                 ),
-                Text(subTitle, style: Styles.textStyle16.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.w600
-                ),)
+                Text(
+                  subTitle,
+                  style: Styles.textStyle16.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                )
               ],
             ),
           )

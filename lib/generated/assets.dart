@@ -39,4 +39,5 @@ class Assets {
   static const String imagesRectangle = 'assets/images/Rectangle 4.png';
   static const String iconsLikes = 'assets/icons/likes.png';
   static const String iconsProfileActive = 'assets/icons/profile_active.png';
+  static const String iconsFavouriteItem = 'assets/icons/favourite_item.png';
 }

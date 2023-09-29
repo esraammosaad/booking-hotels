@@ -8,8 +8,6 @@ class SignInView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       resizeToAvoidBottomInset: true,
-
-
       body: SignInViewBody(),
     );
   }

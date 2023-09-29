@@ -1,4 +1,3 @@
-import 'package:booking_hotels/constants.dart';
 import 'package:booking_hotels/features/home/presentation/views/widgets/custom_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -109,22 +108,30 @@ class _SearchViewBodyState extends State<SearchViewBody> {
             ),
           ),
         ),
-        const SizedBox(
-          height: 16,
-        ),
-        GridView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.06,
+              vertical: 14),
+          child: GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 10,
+              childAspectRatio: 0.7,
+            ),
+            itemCount: hotelList.length,
+            itemBuilder: (context, index) {
+              return CustomSearchCardItem(
+                favouriteImage: Assets.iconsFavourite,
+                image: hotelList[index].image,
+                hotelName: hotelList[index].hotelName,
+                country: hotelList[index].country,
+                price: hotelList[index].price,
+              );
+            },
           ),
-          itemBuilder: (context, index) {
-            return CustomSearchCardItem(
-                image: Assets.imagesAman,
-                hotelName: "Aman New York",
-                country: "Aman New York",
-                price: "Aman New York");
-          },
         )
       ],
     );

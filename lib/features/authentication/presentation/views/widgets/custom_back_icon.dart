@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 class CustomBackIcon extends StatelessWidget {
   const CustomBackIcon({
     super.key,
@@ -12,14 +13,15 @@ class CustomBackIcon extends StatelessWidget {
       child: Align(
         alignment: Alignment.centerLeft,
         child: IconButton(
-            onPressed: () {
-              context.pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              size: 40,
-              color: Colors.black,
-            )),
+          onPressed: () {
+            context.pop();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            size: 40,
+            color: Colors.black,
+          ),
+        ),
       ),
     );
   }

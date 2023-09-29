@@ -3,16 +3,16 @@ import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField(
-      {Key? key,
-      required this.hintText,
-      required this.onSave,
-      required this.keyboardType,
-      required this.textInputAction,
-      required this.obscureText,
-      this.controller,
-      required this.validator})
-      : super(key: key);
+  const CustomTextFormField({
+    Key? key,
+    required this.hintText,
+    required this.onSave,
+    required this.keyboardType,
+    required this.textInputAction,
+    required this.obscureText,
+    this.controller,
+    required this.validator,
+  }) : super(key: key);
 
   final String hintText;
   final TextInputType keyboardType;
@@ -35,7 +35,11 @@ class CustomTextFormField extends StatelessWidget {
         textInputAction: textInputAction,
         validator: validator,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.only(top: 16, bottom: 16, left: 25),
+          contentPadding: const EdgeInsets.only(
+            top: 16,
+            bottom: 16,
+            left: 25,
+          ),
           hintText: hintText,
           hintStyle: Styles.textStyle20.copyWith(
             color: const Color(0x80000000),

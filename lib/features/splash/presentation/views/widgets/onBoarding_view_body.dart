@@ -10,12 +10,12 @@ import 'custom_onBoarding_view_image.dart';
 import 'custom_onBoarding_view_text.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
-  const OnBoardingViewBody(
-      {Key? key,
-      required this.text,
-      required this.image,
-      required this.onPressed})
-      : super(key: key);
+  const OnBoardingViewBody({
+    Key? key,
+    required this.text,
+    required this.image,
+    required this.onPressed,
+  }) : super(key: key);
   final String text;
   final String image;
   final VoidCallback onPressed;
@@ -54,7 +54,9 @@ class OnBoardingViewBody extends StatelessWidget {
           CustomButton(
             text: 'Skip',
             onPressed: () {
-              context.push(AppRoutes.kSignInView,);
+              context.push(
+                AppRoutes.kSignInView,
+              );
             },
             textStyle: Styles.textStyle20
                 .copyWith(color: kPrimaryColor, fontWeight: FontWeight.w700),

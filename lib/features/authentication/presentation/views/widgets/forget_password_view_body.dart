@@ -36,22 +36,21 @@ class ForgetPasswordViewBody extends StatelessWidget {
                   ),
                 ),
                 const CustomForgetPasswordForm()
-
               ],
             ),
           ),
           const SliverFillRemaining(
             fillOverscroll: false,
             hasScrollBody: false,
-            child: SizedBox(height: 20,),
+            child: SizedBox(
+              height: 20,
+            ),
           ),
-          const SliverToBoxAdapter(child: CustomDecoration(),)
+          const SliverToBoxAdapter(
+            child: CustomDecoration(),
+          )
         ],
       ),
     );
   }
 }
-
-
-
-

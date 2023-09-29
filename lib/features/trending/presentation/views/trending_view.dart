@@ -16,10 +16,11 @@ class TrendingView extends StatelessWidget {
           onTap: () {
             context.pushReplacement(AppRoutes.kHomeView);
           },
-            child: Image.asset(Assets.iconsBack)),
+          child: Image.asset(Assets.iconsBack),
+        ),
         title: Text("Trending", style: Styles.textStyle24),
       ),
-      body: TrendingViewBody(),
+      body: const TrendingViewBody(),
     );
   }
 }

@@ -104,7 +104,11 @@ class _AddInformationViewBodyState extends State<AddInformationViewBody> {
                       isExpanded: true,
                       borderRadius: BorderRadius.circular(8),
                       padding: const EdgeInsets.only(
-                          top: 8, bottom: 8, left: 25, right: 25),
+                        top: 8,
+                        bottom: 8,
+                        left: 25,
+                        right: 25,
+                      ),
                       hint: Text(
                         "Gender",
                         style: Styles.textStyle20.copyWith(
@@ -148,7 +152,9 @@ class _AddInformationViewBodyState extends State<AddInformationViewBody> {
                   text: 'Continue',
                   onPressed: () {},
                   textStyle: Styles.textStyle20.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.w700),
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
                   color: kPrimaryColor,
                 ),
               ],

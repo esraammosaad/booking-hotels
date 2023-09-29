@@ -16,6 +16,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     with TickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
+
   @override
   void initState() {
     splashViewAnimation();
@@ -41,8 +42,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
           ),
           Image.asset(Assets.imagesLogo1),
           CustomAnimationBuilder(
-              animationController: animationController,
-              slidingAnimation: slidingAnimation),
+            animationController: animationController,
+            slidingAnimation: slidingAnimation,
+          ),
           const Spacer(),
           const CustomSplashViewDecoration(),
         ],

@@ -3,6 +3,9 @@ class TrendingModel {
   final String title;
   final String subTitle;
 
-  TrendingModel(
-      {required this.image, required this.title, required this.subTitle});
+  TrendingModel({
+    required this.image,
+    required this.title,
+    required this.subTitle,
+  });
 }

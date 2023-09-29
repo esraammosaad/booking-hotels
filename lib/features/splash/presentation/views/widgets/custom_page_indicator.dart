@@ -19,7 +19,10 @@ class CustomPageIndicator extends StatelessWidget {
         dotHeight: 10,
         dotWidth: 10,
       ),
-      onDotClicked: (index) => controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeInExpo),
+      onDotClicked: (index) => controller.nextPage(
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInExpo,
+      ),
     );
   }
 }

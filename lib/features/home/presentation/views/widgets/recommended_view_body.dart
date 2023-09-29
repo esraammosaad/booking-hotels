@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import '../../../../../generated/assets.dart';
-import '../../../../home/data/models/hotel_model.dart';
-import '../../../../search/presentation/views/widgets/custom_search_card_item.dart';
+import '../../../data/models/hotel_model.dart';
+import 'custom_card_item.dart';
 
-class FavouriteViewBody extends StatefulWidget {
-  const FavouriteViewBody({super.key});
+class RecommendedViewBody extends StatefulWidget {
+  const RecommendedViewBody({super.key});
 
   @override
-  State<FavouriteViewBody> createState() => _FavouriteViewBodyState();
+  State<RecommendedViewBody> createState() => _RecommendedViewBodyState();
 }
 
-class _FavouriteViewBodyState extends State<FavouriteViewBody> {
+class _RecommendedViewBodyState extends State<RecommendedViewBody> {
   final List<HotelModel> hotelList = [
     HotelModel(
       image: Assets.imagesAman,
@@ -66,27 +66,20 @@ class _FavouriteViewBodyState extends State<FavouriteViewBody> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.06, vertical: 14),
-        child: GridView.builder(
+        padding: const EdgeInsets.symmetric(vertical: 14),
+        child: ListView.separated(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.7,
-          ),
-          itemCount: hotelList.length,
           itemBuilder: (context, index) {
-            return CustomSearchCardItem(
-              favouriteImage: Assets.iconsFavouriteItem,
+            return CustomCardItem(
               image: hotelList[index].image,
               hotelName: hotelList[index].hotelName,
               country: hotelList[index].country,
               price: hotelList[index].price,
             );
           },
+          separatorBuilder: (context, index) => const SizedBox(height: 7),
+          itemCount: hotelList.length,
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class CustomOnBoardingViewImage extends StatelessWidget {
   const CustomOnBoardingViewImage({
     super.key,
@@ -15,9 +16,10 @@ class CustomOnBoardingViewImage extends StatelessWidget {
         aspectRatio: 1.08,
         child: Container(
           decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(image),
-              )),
+            image: DecorationImage(
+              image: AssetImage(image),
+            ),
+          ),
         ),
       ),
     );

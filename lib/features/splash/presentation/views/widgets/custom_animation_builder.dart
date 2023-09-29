@@ -14,12 +14,14 @@ class CustomAnimationBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: animationController,
-        builder: (context, _) => SlideTransition(
-            position: slidingAnimation,
-            child: Text(
-              'hotels',
-              style: Styles.textStyle46,
-            )));
+      animation: animationController,
+      builder: (context, _) => SlideTransition(
+        position: slidingAnimation,
+        child: Text(
+          'hotels',
+          style: Styles.textStyle46,
+        ),
+      ),
+    );
   }
 }

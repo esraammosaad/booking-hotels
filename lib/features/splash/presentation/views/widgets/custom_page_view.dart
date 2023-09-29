@@ -3,7 +3,6 @@ import 'package:booking_hotels/features/splash/presentation/views/widgets/custom
 import 'package:booking_hotels/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../../../core/utils/routes.dart';
 
 class CustomPageView extends StatelessWidget {
@@ -21,8 +20,9 @@ class CustomPageView extends StatelessWidget {
             text: 'Enjoy hassle free booking with Hotels',
             onPressed: () {
               CustomPageIndicator.controller.nextPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeInExpo);
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInExpo,
+              );
             },
           ),
           OnBoardingView(
@@ -30,8 +30,9 @@ class CustomPageView extends StatelessWidget {
             text: 'Home is where you book it;)',
             onPressed: () {
               CustomPageIndicator.controller.nextPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeInExpo);
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInExpo,
+              );
             },
           ),
           OnBoardingView(
