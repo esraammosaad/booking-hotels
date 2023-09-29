@@ -32,4 +32,11 @@ class Assets {
   static const String iconsRectangle = 'assets/icons/Rectangle.png';
   static const String iconsBack = 'assets/icons/back.png';
   static const String iconsClose = 'assets/icons/Close Square.png';
+  static const String iconsTicket = 'assets/icons/Ticket.png';
+  static const String iconsHomeActive = 'assets/icons/home_active.png';
+  static const String imagesDubaiTrending = 'assets/images/dubai_trending.png';
+  static const String imagesIsland = 'assets/images/island.png';
+  static const String imagesRectangle = 'assets/images/Rectangle 4.png';
+  static const String iconsLikes = 'assets/icons/likes.png';
+  static const String iconsProfileActive = 'assets/icons/profile_active.png';
 }

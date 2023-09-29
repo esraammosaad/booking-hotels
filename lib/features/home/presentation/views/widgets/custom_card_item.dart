@@ -33,28 +33,32 @@ class CustomCardItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(8),
-                  topLeft: Radius.circular(8),
-                ),
-              ),
-              height: double.infinity,
-              width: MediaQuery.of(context).size.width * 0.4,
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              child: Stack(
-                children: [
-                  Image.asset(image),
-                  Positioned(
-                    top: 10,
-                    left: 13,
-                    child: Image.asset(Assets.iconsFavourite),
+            Expanded(
+              flex: 1,
+              child: Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(8),
+                    topLeft: Radius.circular(8),
                   ),
-                ],
+                ),
+                height: double.infinity,
+                width: MediaQuery.of(context).size.width * 0.4,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: Stack(
+                  children: [
+                    Image.asset(image),
+                    Positioned(
+                      top: 10,
+                      left: 13,
+                      child: Image.asset(Assets.iconsFavourite),
+                    ),
+                  ],
+                ),
               ),
             ),
             Expanded(
+              flex: 1,
               child: Padding(
                 padding: const EdgeInsets.only(left: 16),
                 child: Column(

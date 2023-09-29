@@ -4,6 +4,7 @@ import 'package:booking_hotels/features/home/presentation/views/widgets/home_vie
 import 'package:flutter/material.dart';
 import '../../../favourite/presentation/views/favourite_view.dart';
 import '../../../profile/presentation/views/profile_view.dart';
+import '../../../trending/presentation/views/trending_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -28,7 +29,7 @@ class _HomeViewState extends State<HomeView> {
         },
         children: const [
           HomeViewBody(),
-          HomeViewBody(),
+          TrendingView(),
           FavouriteView(),
           ProfileView(),
         ],

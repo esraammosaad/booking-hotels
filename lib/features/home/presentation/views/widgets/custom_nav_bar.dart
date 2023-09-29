@@ -21,7 +21,7 @@ class CustomNavBar extends StatelessWidget {
           activeIcon: Column(
             children: [
               Image.asset(
-                Assets.iconsHome,
+                Assets.iconsHomeActive,
               ),
               const SizedBox(
                 height: 5,
@@ -34,7 +34,7 @@ class CustomNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Image.asset(
-            Assets.iconsTicketStar,
+            Assets.iconsTicket,
           ),
           label: '',
           activeIcon: Column(
@@ -59,7 +59,7 @@ class CustomNavBar extends StatelessWidget {
           activeIcon: Column(
             children: [
               Image.asset(
-                Assets.iconsHeart,
+                Assets.iconsLikes,
               ),
               const SizedBox(
                 height: 5,
@@ -78,7 +78,7 @@ class CustomNavBar extends StatelessWidget {
           activeIcon: Column(
             children: [
               Image.asset(
-                Assets.iconsProfile,
+                Assets.iconsProfileActive,
               ),
               const SizedBox(
                 height: 5,
