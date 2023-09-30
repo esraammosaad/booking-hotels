@@ -85,7 +85,9 @@ class ProfileViewBody extends StatelessWidget {
           ),
           CustomProfileItem(
             text: "Notification",
-            onTap: () {},
+            onTap: () {
+              context.push(AppRoutes.kNotificationView);
+            },
           ),
           const SizedBox(
             height: 14,
@@ -114,7 +116,7 @@ class ProfileViewBody extends StatelessWidget {
               color: Colors.black.withOpacity(0.05),
             ),
             child: Padding(
-              padding: EdgeInsets.only(left: 16),
+              padding: const EdgeInsets.only(left: 16),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: GestureDetector(

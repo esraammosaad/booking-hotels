@@ -5,6 +5,7 @@ import 'package:booking_hotels/features/authentication/presentation/views/verify
 import 'package:booking_hotels/features/favourite/presentation/views/favourite_view.dart';
 import 'package:booking_hotels/features/home/presentation/views/home_view.dart';
 import 'package:booking_hotels/features/home/presentation/views/recommended_view.dart';
+import 'package:booking_hotels/features/notification/presentation/views/notification_view.dart';
 import 'package:booking_hotels/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:booking_hotels/features/search/presentation/views/search_view.dart';
 import 'package:booking_hotels/features/splash/presentation/views/splash_view.dart';
@@ -28,6 +29,7 @@ abstract class AppRoutes {
   static String kRecommendedView = '/recommendedView';
   static String kFavouriteView = '/favouriteView';
   static String kEditProfileView = '/editProfileView';
+  static String kNotificationView = '/notificationView';
 
   static final router = GoRouter(
     routes: [
@@ -283,6 +285,28 @@ abstract class AppRoutes {
             transitionDuration: const Duration(milliseconds: 500),
             key: state.pageKey,
             child: const EditProfileView(),
+            transitionsBuilder: (context, animation, animationTwo, child) {
+              return SlideTransition(
+                position:
+                    Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
+                  CurvedAnimation(
+                    curve: Curves.easeInExpo,
+                    parent: animation,
+                  ),
+                ),
+                child: child,
+              );
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: kNotificationView,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            transitionDuration: const Duration(milliseconds: 500),
+            key: state.pageKey,
+            child: const NotificationView(),
             transitionsBuilder: (context, animation, animationTwo, child) {
               return SlideTransition(
                 position:
