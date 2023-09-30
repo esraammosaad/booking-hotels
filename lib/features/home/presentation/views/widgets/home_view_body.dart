@@ -190,19 +190,19 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           separatorBuilder: (context, index) => const SizedBox(height: 7),
           itemCount: 2,
         ),
-        Center(
-          child: GestureDetector(
-            onTap: () async {
-              await FirebaseAuth.instance.signOut();
-              GoogleSignIn googleSignIn = GoogleSignIn();
-              googleSignIn.disconnect();
-              context.push(
-                AppRoutes.kSignUpView,
-              );
-            },
-            child: const Text("Sign out"),
-          ),
-        ),
+        // Center(
+        //   child: GestureDetector(
+        //     onTap: () async {
+        //       await FirebaseAuth.instance.signOut();
+        //       GoogleSignIn googleSignIn = GoogleSignIn();
+        //       googleSignIn.disconnect();
+        //       context.push(
+        //         AppRoutes.kSignUpView,
+        //       );
+        //     },
+        //     child: const Text("Sign out"),
+        //   ),
+        // ),
       ],
     );
   }

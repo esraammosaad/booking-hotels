@@ -40,4 +40,6 @@ class Assets {
   static const String iconsLikes = 'assets/icons/likes.png';
   static const String iconsProfileActive = 'assets/icons/profile_active.png';
   static const String iconsFavouriteItem = 'assets/icons/favourite_item.png';
+  static const String iconsBackOutline =
+      'assets/icons/ion_chevron-back-outline.png';
 }
