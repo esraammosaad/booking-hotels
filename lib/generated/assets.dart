@@ -42,4 +42,5 @@ class Assets {
   static const String iconsFavouriteItem = 'assets/icons/favourite_item.png';
   static const String iconsBackOutline =
       'assets/icons/ion_chevron-back-outline.png';
+  static const String iconsEdit = 'assets/icons/Edit.png';
 }
