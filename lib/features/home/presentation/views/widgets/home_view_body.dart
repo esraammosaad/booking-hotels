@@ -1,8 +1,6 @@
 import 'package:booking_hotels/features/home/presentation/views/widgets/custom_home_app_bar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../../core/utils/routes.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../generated/assets.dart';

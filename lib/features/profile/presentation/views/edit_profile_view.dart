@@ -14,7 +14,7 @@ class EditProfileView extends StatelessWidget {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            context.pushReplacement(AppRoutes.kHomeView);
+            context.pop();
           },
           child: Image.asset(Assets.iconsBack),
         ),

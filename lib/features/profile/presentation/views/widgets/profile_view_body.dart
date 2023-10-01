@@ -2,10 +2,12 @@ import 'package:booking_hotels/constants.dart';
 import 'package:booking_hotels/core/utils/styles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../../core/utils/routes.dart';
 import '../../../../../generated/assets.dart';
+import '../../../../help_and_support/presentation/manager/chat_cubit/chat_cubit.dart';
 import 'custom_profile_item.dart';
 
 class ProfileViewBody extends StatelessWidget {
@@ -78,7 +80,10 @@ class ProfileViewBody extends StatelessWidget {
           ),
           CustomProfileItem(
             text: "Help & support",
-            onTap: () {},
+            onTap: () {
+              BlocProvider.of<ChatCubit>(context).getMessage();
+              context.push(AppRoutes.kHelpAndSupportView);
+            },
           ),
           const SizedBox(
             height: 14,
