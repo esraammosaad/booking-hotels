@@ -12,6 +12,16 @@ class HelpAndSupportView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
      appBar: AppBar(
+       elevation: 50,
+          shadowColor: Colors.black,
+          shape:  const OutlineInputBorder(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(16),
+              bottomLeft: Radius.circular(16),
+
+            ),
+            borderSide:BorderSide(color: Colors.transparent)
+          ),
 
 
           leading: GestureDetector(
