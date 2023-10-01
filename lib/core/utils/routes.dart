@@ -5,6 +5,7 @@ import 'package:booking_hotels/features/authentication/presentation/views/verify
 import 'package:booking_hotels/features/favourite/presentation/views/favourite_view.dart';
 import 'package:booking_hotels/features/home/presentation/views/home_view.dart';
 import 'package:booking_hotels/features/home/presentation/views/recommended_view.dart';
+import 'package:booking_hotels/features/hotel_details/presentation/views/hotel_details_view.dart';
 import 'package:booking_hotels/features/notification/presentation/views/notification_view.dart';
 import 'package:booking_hotels/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:booking_hotels/features/help_and_support/presentation/views/help_and_support_view.dart';
@@ -32,6 +33,7 @@ abstract class AppRoutes {
   static String kEditProfileView = '/editProfileView';
   static String kNotificationView = '/notificationView';
   static String kHelpAndSupportView = '/helpAndSupportView';
+  static String kHotelDetailsView = '/hotelDetailsView';
 
   static final router = GoRouter(
     routes: [
@@ -335,6 +337,28 @@ abstract class AppRoutes {
               return SlideTransition(
                 position:
                     Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
+                  CurvedAnimation(
+                    curve: Curves.easeInExpo,
+                    parent: animation,
+                  ),
+                ),
+                child: child,
+              );
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: kHotelDetailsView,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            transitionDuration: const Duration(milliseconds: 500),
+            key: state.pageKey,
+            child: const HotelDetailsView(),
+            transitionsBuilder: (context, animation, animationTwo, child) {
+              return SlideTransition(
+                position:
+                Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
                   CurvedAnimation(
                     curve: Curves.easeInExpo,
                     parent: animation,

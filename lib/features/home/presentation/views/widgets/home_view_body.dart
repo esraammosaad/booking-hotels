@@ -124,19 +124,24 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         const SizedBox(
           height: 14,
         ),
-        ListView.separated(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return CustomCardItem(
-              image: hotelList[index].image,
-              hotelName: hotelList[index].hotelName,
-              country: hotelList[index].country,
-              price: hotelList[index].price,
-            );
+        GestureDetector(
+          onTap: () {
+            context.push(AppRoutes.kHotelDetailsView);
           },
-          separatorBuilder: (context, index) => const SizedBox(height: 7),
-          itemCount: 2,
+          child: ListView.separated(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return CustomCardItem(
+                image: hotelList[index].image,
+                hotelName: hotelList[index].hotelName,
+                country: hotelList[index].country,
+                price: hotelList[index].price,
+              );
+            },
+            separatorBuilder: (context, index) => const SizedBox(height: 7),
+            itemCount: 2,
+          ),
         ),
         const SizedBox(
           height: 24,
@@ -187,6 +192,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           },
           separatorBuilder: (context, index) => const SizedBox(height: 7),
           itemCount: 2,
+        ),
+        const SizedBox(
+          height: 14,
         ),
         // Center(
         //   child: GestureDetector(

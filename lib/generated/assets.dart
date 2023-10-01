@@ -45,4 +45,17 @@ class Assets {
   static const String iconsEdit = 'assets/icons/Edit.png';
   static const String iconsNotificationView = 'assets/icons/notification.png';
   static const String sendIcon = 'assets/icons/Send.png';
+  static const String iconsFavouriteView = 'assets/icons/Vector (1).png';
+  static const String imagesUnsplash = 'assets/images/unsplash_vmIWr0NnpCQ.png';
+  static const String iconsFamily = 'assets/icons/carbon_pedestrian-family.png';
+  static const String iconsRestaurant = 'assets/icons/carbon_restaurant.png';
+  static const String iconsSpa = 'assets/icons/cil_spa.png';
+  static const String iconsGym = 'assets/icons/iconoir_gym.png';
+  static const String iconsParking = 'assets/icons/iconoir_parking.png';
+  static const String iconsPool = 'assets/icons/pool.png';
+  static const String iconsCoffee = 'assets/icons/uiw_coffee.png';
+  static const String iconsWifi = 'assets/icons/wifi.png';
+  static const String imagesGallary = 'assets/images/gallary.png';
+  static const String imagesReview_1 = 'assets/images/review_1.png';
+  static const String imagesReview_2 = 'assets/images/review_2.png';
 }

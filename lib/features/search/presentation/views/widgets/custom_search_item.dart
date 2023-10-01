@@ -8,11 +8,13 @@ class CustomSearchItem extends StatelessWidget {
     required this.image,
     required this.title,
     required this.subTitle,
+    required this.onTap,
   });
 
   final String image;
   final String title;
   final String subTitle;
+  final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,10 @@ class CustomSearchItem extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 ),
-                trailing: Image.asset(Assets.iconsClose),
+                trailing: GestureDetector(
+                  onTap: onTap,
+                  child: Image.asset(Assets.iconsClose),
+                ),
               ),
             ),
           ],

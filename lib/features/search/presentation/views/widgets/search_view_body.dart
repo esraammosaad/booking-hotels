@@ -41,6 +41,28 @@ class _SearchViewBodyState extends State<SearchViewBody> {
       price: "\$99",
     ),
   ];
+  List<HotelModel> searchHotels = [];
+
+  @override
+  void initState() {
+    searchHotels = hotelList;
+    super.initState();
+  }
+
+  void updateHotels(value) {
+    List<HotelModel> hotels = [];
+    if (value.isEmpty) {
+      hotels = hotelList;
+    } else {
+      hotels = hotelList
+          .where((element) =>
+              element.hotelName.toLowerCase().contains(value.toLowerCase()))
+          .toList();
+    }
+    setState(() {
+      searchHotels = hotels;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +72,7 @@ class _SearchViewBodyState extends State<SearchViewBody> {
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.of(context).size.height * 0.05),
           child: CustomSearchBar(
+            onChanged: (value) => updateHotels(value),
             prefixIcon: GestureDetector(
               onTap: () {
                 context.pop();
@@ -85,13 +108,18 @@ class _SearchViewBodyState extends State<SearchViewBody> {
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return CustomSearchItem(
-                image: hotelList[index].image,
-                title: hotelList[index].hotelName,
-                subTitle: hotelList[index].country,
+                image: searchHotels[index].image,
+                title: searchHotels[index].hotelName,
+                subTitle: searchHotels[index].country,
+                onTap: () {
+                  setState(() {
+                    searchHotels.remove(searchHotels[index]);
+                  });
+                },
               );
             },
             separatorBuilder: (context, index) => const SizedBox(height: 8),
-            itemCount: hotelList.length,
+            itemCount: searchHotels.length,
           ),
         ),
         const SizedBox(
