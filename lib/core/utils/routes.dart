@@ -7,6 +7,7 @@ import 'package:booking_hotels/features/home/presentation/views/home_view.dart';
 import 'package:booking_hotels/features/home/presentation/views/recommended_view.dart';
 import 'package:booking_hotels/features/hotel_details/presentation/views/hotel_details_view.dart';
 import 'package:booking_hotels/features/notification/presentation/views/notification_view.dart';
+import 'package:booking_hotels/features/payment/presentation/views/confirm_booking_view.dart';
 import 'package:booking_hotels/features/payment/presentation/views/payment_view.dart';
 import 'package:booking_hotels/features/payment/presentation/views/select_date_view.dart';
 import 'package:booking_hotels/features/profile/presentation/views/edit_profile_view.dart';
@@ -37,7 +38,8 @@ abstract class AppRoutes {
   static String kHelpAndSupportView = '/helpAndSupportView';
   static String kHotelDetailsView = '/hotelDetailsView';
   static String kPaymentView = '/paymentView';
-  static String kSelectDateView = '/SelectDateView';
+  static String kSelectDateView = '/selectDateView';
+  static String kConfirmBookingView = '/confirmBookingView';
 
   static final router = GoRouter(
     routes: [
@@ -362,7 +364,7 @@ abstract class AppRoutes {
             transitionsBuilder: (context, animation, animationTwo, child) {
               return SlideTransition(
                 position:
-                Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
+                    Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
                   CurvedAnimation(
                     curve: Curves.easeInExpo,
                     parent: animation,
@@ -384,7 +386,7 @@ abstract class AppRoutes {
             transitionsBuilder: (context, animation, animationTwo, child) {
               return SlideTransition(
                 position:
-                Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
+                    Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
                   CurvedAnimation(
                     curve: Curves.easeInExpo,
                     parent: animation,
@@ -406,7 +408,29 @@ abstract class AppRoutes {
             transitionsBuilder: (context, animation, animationTwo, child) {
               return SlideTransition(
                 position:
-                Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
+                    Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
+                  CurvedAnimation(
+                    curve: Curves.easeInExpo,
+                    parent: animation,
+                  ),
+                ),
+                child: child,
+              );
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: kConfirmBookingView,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            transitionDuration: const Duration(milliseconds: 500),
+            key: state.pageKey,
+            child: const ConfirmBookingView(),
+            transitionsBuilder: (context, animation, animationTwo, child) {
+              return SlideTransition(
+                position:
+                    Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
                   CurvedAnimation(
                     curve: Curves.easeInExpo,
                     parent: animation,

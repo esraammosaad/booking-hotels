@@ -1,7 +1,9 @@
+import 'package:booking_hotels/core/utils/routes.dart';
 import 'package:booking_hotels/core/utils/styles.dart';
 import 'package:booking_hotels/features/payment/presentation/views/widgets/custom_payment_text_field.dart';
 import 'package:booking_hotels/features/profile/presentation/views/widgets/custom_edit_profile_title.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/custom_button.dart';
 import 'custom_price_details_container.dart';
@@ -88,7 +90,8 @@ class PaymentViewBody extends StatelessWidget {
           CustomButton(
             padding: 25,
               text: "Pay",
-              onPressed: () {},
+              onPressed: () {
+              },
               textStyle: Styles.textStyle20.copyWith(color: Colors.white),
               color: kPrimaryColor),
           const SizedBox(

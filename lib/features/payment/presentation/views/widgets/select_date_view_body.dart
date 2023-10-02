@@ -51,7 +51,7 @@ class _SelectDateViewBodyState extends State<SelectDateViewBody> {
                 height: 25,
               ),
               CustomButton(text: 'continue', onPressed: (){
-                context.push(AppRoutes.kPaymentView);
+                context.push(AppRoutes.kConfirmBookingView);
               }, textStyle: Styles.textStyle20.copyWith(color: Colors.white,fontWeight: FontWeight.w700), color: kPrimaryColor, padding: 0)
 
 
