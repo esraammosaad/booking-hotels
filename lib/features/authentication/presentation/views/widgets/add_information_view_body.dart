@@ -132,19 +132,7 @@ class _AddInformationViewBodyState extends State<AddInformationViewBody> {
                 const SizedBox(
                   height: 24,
                 ),
-                // CustomTextFormField(
-                //   validator: (value) {
-                //     if (value!.isEmpty) {
-                //       return 'Gender must not be empty';
-                //     }
-                //     return null;
-                //   },
-                //   obscureText: false,
-                //   keyboardType: TextInputType.text,
-                //   textInputAction: TextInputAction.done,
-                //   hintText: 'Gender',
-                //   onSave: (value) {},
-                // ),
+
                 const SizedBox(
                   height: 39,
                 ),

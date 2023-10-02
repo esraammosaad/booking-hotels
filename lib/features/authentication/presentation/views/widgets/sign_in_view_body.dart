@@ -35,6 +35,7 @@ class SignInViewBody extends StatelessWidget {
                 listener: (context, state) {
                   if (state is AuthSuccess) {
                     context.push(AppRoutes.kHomeView);
+
                   } else if (state is AuthFailure) {
                     showAwesomeDialog(
                       context,
@@ -60,37 +61,23 @@ class SignInViewBody extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              const CustomSignInContainer(
-                  text: 'Continue with facebook',
-                  icon: FaIcon(
-                    FontAwesomeIcons.facebook,
-                    size: 40,
-                    color: Color(0xff1877F2),
-                  )),
               GestureDetector(
-                onTap: () async {
-                  try {
-                    final GoogleSignInAccount? googleUser =
-                        await GoogleSignIn(scopes: ['profile', 'email'])
-                            .signIn();
+                onTap: (){
+                  BlocProvider.of<AuthCubit>(context).signInWithFaceBook();
+                },
+                child: const CustomSignInContainer(
+                    text: 'Continue with facebook',
+                    icon: FaIcon(
+                      FontAwesomeIcons.facebook,
+                      size: 40,
+                      color: Color(0xff1877F2),
+                    )),
+              ),
+              GestureDetector(
+                onTap: ()  {
+                  BlocProvider.of<AuthCubit>(context).signInWithGoogle();
 
-                    // Obtain the auth details from the request
-                    final GoogleSignInAuthentication? googleAuth =
-                        await googleUser?.authentication;
 
-                    // Create a new credential
-                    final credential = GoogleAuthProvider.credential(
-                      accessToken: googleAuth?.accessToken,
-                      idToken: googleAuth?.idToken,
-                    );
-
-                    // Once signed in, return the UserCredential
-                    await FirebaseAuth.instance
-                        .signInWithCredential(credential);
-                    context.push(AppRoutes.kHomeView);
-                  } on FirebaseException catch (e) {
-                    debugPrint(e.code);
-                  }
                 },
                 child: CustomSignInContainer(
                   text: "Continue with google",

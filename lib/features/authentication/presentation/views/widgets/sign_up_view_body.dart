@@ -64,13 +64,7 @@ class SignUpViewBody extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () async {
-                  // final LoginResult loginResult = await FacebookAuth.instance.login();
-                  //
-                  // // Create a credential from the access token
-                  // final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken.token);
-                  //
-                  // // Once signed in, return the UserCredential
-                  // return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+                  BlocProvider.of<AuthCubit>(context).signInWithFaceBook();
                 },
                 child: const CustomSignInContainer(
                   text: 'Continue with facebook',
@@ -84,28 +78,7 @@ class SignUpViewBody extends StatelessWidget {
               GestureDetector(
                 onTap: () async {
                   // Trigger the authentication flow
-                  try {
-                    final GoogleSignInAccount? googleUser =
-                        await GoogleSignIn(scopes: ['profile', 'email'])
-                            .signIn();
-
-                    // Obtain the auth details from the request
-                    final GoogleSignInAuthentication? googleAuth =
-                        await googleUser?.authentication;
-
-                    // Create a new credential
-                    final credential = GoogleAuthProvider.credential(
-                      accessToken: googleAuth?.accessToken,
-                      idToken: googleAuth?.idToken,
-                    );
-
-                    // Once signed in, return the UserCredential
-                    await FirebaseAuth.instance
-                        .signInWithCredential(credential);
-                    context.push(AppRoutes.kHomeView);
-                  } on FirebaseException catch (e) {
-                    debugPrint(e.code);
-                  }
+                  BlocProvider.of<AuthCubit>(context).signInWithGoogle();
                 },
                 child: CustomSignInContainer(
                   text: "Continue with google",

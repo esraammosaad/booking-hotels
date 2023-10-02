@@ -2,8 +2,9 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:meta/meta.dart';
-
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -64,5 +65,51 @@ class AuthCubit extends Cubit<AuthState> {
             desc: 'Wrong password provided for that user.'));
       }
     }
+  }
+
+  Future<void> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser =
+          await GoogleSignIn(scopes: ['profile', 'email']).signIn();
+
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      emit(AuthSuccess());
+    } on FirebaseException catch (e) {
+      emit(AuthFailure(
+          desc: e.code, dialogType: DialogType.error, title: 'Error'));
+      debugPrint(e.code);
+    }
+  }
+
+  Future<void> signInWithFaceBook() async {
+    try {
+      final LoginResult loginResult = await FacebookAuth.instance.login();
+
+      final OAuthCredential facebookAuthCredential =
+          FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+      FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+      emit(AuthSuccess());
+    } on FirebaseException catch (e) {
+      emit(AuthFailure(
+          desc: e.code, dialogType: DialogType.error, title: 'Error'));
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> logOutUser() async {
+    await FirebaseAuth.instance.signOut();
+    GoogleSignIn googleSignIn = GoogleSignIn();
+    googleSignIn.disconnect();
+    emit(AuthSuccess());
   }
 }

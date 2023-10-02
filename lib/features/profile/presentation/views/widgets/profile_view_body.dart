@@ -1,13 +1,12 @@
 import 'package:booking_hotels/constants.dart';
 import 'package:booking_hotels/core/utils/styles.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../../core/utils/routes.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../help_and_support/presentation/manager/chat_cubit/chat_cubit.dart';
+import 'custom_log_out_container.dart';
 import 'custom_profile_item.dart';
 
 class ProfileViewBody extends StatelessWidget {
@@ -113,36 +112,7 @@ class ProfileViewBody extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.8,
-            height: 48,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Colors.black.withOpacity(0.05),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: GestureDetector(
-                  onTap: () async {
-                    await FirebaseAuth.instance.signOut();
-                    GoogleSignIn googleSignIn = GoogleSignIn();
-                    googleSignIn.disconnect();
-                    context.push(
-                      AppRoutes.kSignUpView,
-                    );
-                  },
-                  child: Text(
-                    "Log out",
-                    style: Styles.textStyle20.copyWith(
-                      color: const Color(0xffFF3D00),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          const CustomLogOutContainer(),
           const SizedBox(
             height: 24,
           ),
@@ -151,3 +121,5 @@ class ProfileViewBody extends StatelessWidget {
     );
   }
 }
+
+
