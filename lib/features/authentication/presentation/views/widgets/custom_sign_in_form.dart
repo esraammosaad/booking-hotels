@@ -30,6 +30,7 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
           Padding(
             padding: const EdgeInsets.only(top: 22.0, bottom: 24),
             child: CustomTextFormField(
+              color: const Color(0x0D000000),
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Email address must not be empty';
@@ -47,6 +48,7 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
           Padding(
             padding: const EdgeInsets.only(bottom: 7),
             child: CustomTextFormField(
+              color: const Color(0x0D000000),
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Password must not be empty';

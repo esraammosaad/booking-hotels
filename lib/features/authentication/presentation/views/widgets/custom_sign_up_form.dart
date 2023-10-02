@@ -28,6 +28,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
       child: Column(
         children: [
           CustomTextFormField(
+            color: const Color(0x0D000000),
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Email address must not be empty';
@@ -45,6 +46,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             height: 24,
           ),
           CustomTextFormField(
+            color: const Color(0x0D000000),
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Password must not be empty';
@@ -62,6 +64,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             height: 24,
           ),
           CustomTextFormField(
+            color: const Color(0x0D000000),
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Please enter re-password';

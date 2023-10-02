@@ -30,6 +30,7 @@ class _CustomForgetPasswordFormState extends State<CustomForgetPasswordForm> {
             height: 36,
           ),
           CustomTextFormField(
+            color: const Color(0x0D000000),
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Phone number must not be empty';
