@@ -48,6 +48,7 @@ class _CustomForgetPasswordFormState extends State<CustomForgetPasswordForm> {
             height: 25,
           ),
           CustomButton(
+            padding: 25,
             text: 'Continue',
             onPressed: () async {
               if (formKey.currentState!.validate()) {

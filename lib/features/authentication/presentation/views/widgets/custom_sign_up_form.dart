@@ -85,6 +85,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             height: 39,
           ),
           CustomButton(
+            padding: 25,
             text: 'Sign up',
             onPressed: () {
               if (formKey.currentState!.validate()) {

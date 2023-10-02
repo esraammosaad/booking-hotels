@@ -42,6 +42,7 @@ class OnBoardingViewBody extends StatelessWidget {
             height: 42,
           ),
           CustomButton(
+            padding: 25,
             text: 'Next',
             onPressed: onPressed,
             textStyle: Styles.textStyle20
@@ -52,6 +53,7 @@ class OnBoardingViewBody extends StatelessWidget {
             height: 13,
           ),
           CustomButton(
+            padding: 25,
             text: 'Skip',
             onPressed: () {
               context.push(

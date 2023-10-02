@@ -42,6 +42,7 @@ class _CustomVerifyCodeFormState extends State<CustomVerifyCodeForm> {
             height: 25,
           ),
           CustomButton(
+            padding: 25,
             text: 'Continue',
             onPressed: () {
               if (formKey.currentState!.validate()) {

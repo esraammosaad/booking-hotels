@@ -140,6 +140,7 @@ class _AddInformationViewBodyState extends State<AddInformationViewBody> {
                   height: 39,
                 ),
                 CustomButton(
+                  padding: 25,
                   text: 'Continue',
                   onPressed: () {},
                   textStyle: Styles.textStyle20.copyWith(

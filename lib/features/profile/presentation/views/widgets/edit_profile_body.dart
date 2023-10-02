@@ -63,6 +63,7 @@ class EditProfileBody extends StatelessWidget {
             ],
           ),
           CustomButton(
+            padding: 25,
               text: "continue",
               onPressed: () {
                 context.push(AppRoutes.kHomeView);

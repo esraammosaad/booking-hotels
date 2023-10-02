@@ -65,6 +65,7 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
           ),
           CustomForgetPasswordWidget(emailController: emailController),
           CustomButton(
+            padding: 25,
             text: 'Sign in',
             onPressed: () {
               if (formKey.currentState!.validate()) {

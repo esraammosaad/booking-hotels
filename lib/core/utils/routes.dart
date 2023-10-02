@@ -8,6 +8,7 @@ import 'package:booking_hotels/features/home/presentation/views/recommended_view
 import 'package:booking_hotels/features/hotel_details/presentation/views/hotel_details_view.dart';
 import 'package:booking_hotels/features/notification/presentation/views/notification_view.dart';
 import 'package:booking_hotels/features/payment/presentation/views/payment_view.dart';
+import 'package:booking_hotels/features/payment/presentation/views/select_date_view.dart';
 import 'package:booking_hotels/features/profile/presentation/views/edit_profile_view.dart';
 import 'package:booking_hotels/features/help_and_support/presentation/views/help_and_support_view.dart';
 import 'package:booking_hotels/features/search/presentation/views/search_view.dart';
@@ -36,6 +37,7 @@ abstract class AppRoutes {
   static String kHelpAndSupportView = '/helpAndSupportView';
   static String kHotelDetailsView = '/hotelDetailsView';
   static String kPaymentView = '/paymentView';
+  static String kSelectDateView = '/SelectDateView';
 
   static final router = GoRouter(
     routes: [
@@ -379,6 +381,28 @@ abstract class AppRoutes {
             transitionDuration: const Duration(milliseconds: 500),
             key: state.pageKey,
             child: const PaymentView(),
+            transitionsBuilder: (context, animation, animationTwo, child) {
+              return SlideTransition(
+                position:
+                Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
+                  CurvedAnimation(
+                    curve: Curves.easeInExpo,
+                    parent: animation,
+                  ),
+                ),
+                child: child,
+              );
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: kSelectDateView,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            transitionDuration: const Duration(milliseconds: 500),
+            key: state.pageKey,
+            child: const SelectDateView(),
             transitionsBuilder: (context, animation, animationTwo, child) {
               return SlideTransition(
                 position:

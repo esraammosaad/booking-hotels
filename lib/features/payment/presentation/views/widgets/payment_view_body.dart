@@ -80,103 +80,115 @@ class PaymentViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 28,
                 ),
-                Container(
-                  width: double.infinity,
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.black.withOpacity(0.05)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const CustomEditProfileTitle(text: "Price details"),
-                      const SizedBox(
-                        height: 14,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "\$50 *5 night",
-                            style: Styles.textStyle16.copyWith(
-                                color: Colors.black.withOpacity(0.7),
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            "\$250",
-                            style: Styles.textStyle16.copyWith(
-                                color: Colors.black.withOpacity(0.7),
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 14,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Cleaning fee",
-                            style: Styles.textStyle16.copyWith(
-                                color: Colors.black.withOpacity(0.7),
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            "\$10",
-                            style: Styles.textStyle16.copyWith(
-                                color: Colors.black.withOpacity(0.7),
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 14,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "service fee",
-                            style: Styles.textStyle16.copyWith(
-                                color: Colors.black.withOpacity(0.7),
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            "\$10",
-                            style: Styles.textStyle16.copyWith(
-                                color: Colors.black.withOpacity(0.7),
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 14,
-                      ),
-                      Divider(
-                        color: Colors.black.withOpacity(0.5),
-                      ),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomEditProfileTitle(text: "Total"),
-                          CustomEditProfileTitle(text: "\$270"),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
+                const CustomPriceDetailsContainer(),
               ],
             ),
           ),
           CustomButton(
+            padding: 25,
               text: "Pay",
               onPressed: () {},
               textStyle: Styles.textStyle20.copyWith(color: Colors.white),
               color: kPrimaryColor),
           const SizedBox(
             height: 14,
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class CustomPriceDetailsContainer extends StatelessWidget {
+  const CustomPriceDetailsContainer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding:
+          const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: Colors.black.withOpacity(0.05)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CustomEditProfileTitle(text: "Price details"),
+          const SizedBox(
+            height: 14,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "\$50 *5 night",
+                style: Styles.textStyle16.copyWith(
+                    color: Colors.black.withOpacity(0.7),
+                    fontWeight: FontWeight.w600),
+              ),
+              Text(
+                "\$250",
+                style: Styles.textStyle16.copyWith(
+                    color: Colors.black.withOpacity(0.7),
+                    fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Cleaning fee",
+                style: Styles.textStyle16.copyWith(
+                    color: Colors.black.withOpacity(0.7),
+                    fontWeight: FontWeight.w600),
+              ),
+              Text(
+                "\$10",
+                style: Styles.textStyle16.copyWith(
+                    color: Colors.black.withOpacity(0.7),
+                    fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "service fee",
+                style: Styles.textStyle16.copyWith(
+                    color: Colors.black.withOpacity(0.7),
+                    fontWeight: FontWeight.w600),
+              ),
+              Text(
+                "\$10",
+                style: Styles.textStyle16.copyWith(
+                    color: Colors.black.withOpacity(0.7),
+                    fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          Divider(
+            color: Colors.black.withOpacity(0.5),
+          ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomEditProfileTitle(text: "Total"),
+              CustomEditProfileTitle(text: "\$270"),
+            ],
           )
         ],
       ),

@@ -64,6 +64,7 @@ class _CustomNewPasswordFormState extends State<CustomNewPasswordForm> {
             height: 25,
           ),
           CustomButton(
+            padding: 25,
             text: 'Save',
             onPressed: () {
               if (formKey.currentState!.validate()) {
