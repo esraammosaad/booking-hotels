@@ -1,4 +1,5 @@
 import 'package:booking_hotels/constants.dart';
+import 'package:booking_hotels/core/utils/routes.dart';
 import 'package:booking_hotels/core/utils/styles.dart';
 import 'package:booking_hotels/features/profile/presentation/views/widgets/custom_edit_profile_title.dart';
 import 'package:booking_hotels/generated/assets.dart';
@@ -192,7 +193,9 @@ class HotelDetailsBody extends StatelessWidget {
               ),
               Expanded(
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push(AppRoutes.kPaymentView);
+                  },
                   padding: const EdgeInsets.symmetric(
                     horizontal: 13,
                     vertical: 10,

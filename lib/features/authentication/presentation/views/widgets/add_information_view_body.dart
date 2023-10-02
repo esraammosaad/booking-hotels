@@ -34,6 +34,7 @@ class _AddInformationViewBodyState extends State<AddInformationViewBody> {
                   height: 25,
                 ),
                 CustomTextFormField(
+                  color: const Color(0x0D000000),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Name must not be empty';
@@ -50,6 +51,7 @@ class _AddInformationViewBodyState extends State<AddInformationViewBody> {
                   height: 24,
                 ),
                 CustomTextFormField(
+                  color: const Color(0x0D000000),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Phone number must not be empty';
@@ -66,6 +68,7 @@ class _AddInformationViewBodyState extends State<AddInformationViewBody> {
                   height: 24,
                 ),
                 CustomTextFormField(
+                  color: const Color(0x0D000000),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Country must not be empty';

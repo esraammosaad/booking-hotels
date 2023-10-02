@@ -16,6 +16,8 @@ class CustomAppBar extends StatelessWidget {
     return AppBar(
       elevation: 50,
       shadowColor: Colors.black,
+      backgroundColor: Color(0xffFFFBFB),
+      surfaceTintColor: Color(0xffFFFBFB),
       shape: const OutlineInputBorder(
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(16),

@@ -80,7 +80,7 @@ class _FavouriteViewBodyState extends State<FavouriteViewBody> {
           itemCount: hotelList.length,
           itemBuilder: (context, index) {
             return CustomSearchCardItem(
-              favouriteImage: Assets.iconsFavouriteItem,
+              favouriteImage: Assets.iconsFavouriteView,
               image: hotelList[index].image,
               hotelName: hotelList[index].hotelName,
               country: hotelList[index].country,

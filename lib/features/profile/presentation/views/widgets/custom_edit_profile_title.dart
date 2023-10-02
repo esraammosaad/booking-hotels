@@ -13,6 +13,8 @@ class CustomEditProfileTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      overflow: TextOverflow.ellipsis,
+      maxLines: 1,
       text,
       style: Styles.textStyle20.copyWith(
         color: Colors.black,

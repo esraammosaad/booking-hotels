@@ -11,7 +11,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.textInputAction,
     required this.obscureText,
     this.controller,
-    required this.validator,
+    required this.validator, required this.color,
   }) : super(key: key);
 
   final String hintText;
@@ -21,6 +21,7 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String?) onSave;
   final TextEditingController? controller;
   final String? Function(String?) validator;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +49,15 @@ class CustomTextFormField extends StatelessWidget {
           filled: true,
           fillColor: kFieldColor,
           border: buildOutlineInputBorder(
-            const Color(0x0D000000),
+            color
+            // const Color(0x0D000000),
           ),
           errorBorder: buildOutlineInputBorder(Colors.red),
           focusedErrorBorder: buildOutlineInputBorder(Colors.red),
           focusedBorder: buildOutlineInputBorder(kPrimaryColor),
           enabledBorder: buildOutlineInputBorder(
-            const Color(0x0D000000),
+            color
+            // const Color(0x0D000000),
           ),
         ),
       ),

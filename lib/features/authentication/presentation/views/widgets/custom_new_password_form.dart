@@ -25,6 +25,7 @@ class _CustomNewPasswordFormState extends State<CustomNewPasswordForm> {
       child: Column(
         children: [
           CustomTextFormField(
+            color: const Color(0x0D000000),
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Password must not be empty';
@@ -42,6 +43,7 @@ class _CustomNewPasswordFormState extends State<CustomNewPasswordForm> {
             height: 25,
           ),
           CustomTextFormField(
+            color: const Color(0x0D000000),
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Please enter re-password';
