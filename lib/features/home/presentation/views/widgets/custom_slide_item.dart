@@ -1,20 +1,34 @@
+import 'package:booking_hotels/features/home/presentation/views/widgets/custom_favorite_icon.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../../../generated/assets.dart';
+import '../../../data/models/hotel_model.dart';
 
 class CustomSlideItem extends StatelessWidget {
   const CustomSlideItem({
-    super.key,
+    super.key, required this.item,
   });
+  final HotelModel item;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
-          Assets.imagesSlide,
-          fit: BoxFit.fill,
+        SizedBox(
+          width: MediaQuery.of(context).size.width*0.8,
+          child: AspectRatio(
+
+            aspectRatio: 362/216,
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(item.image,),
+                  fit: BoxFit.fill,
+                )
+              ),
+            ),
+          ),
         ),
+      
         Padding(
           padding: EdgeInsets.only(
             top: MediaQuery.of(context).size.height * 0.015,
@@ -27,11 +41,11 @@ class CustomSlideItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Image.asset(Assets.iconsFavourite),
+                  CustomFavoriteIcon(item: item),
                 ],
               ),
               Text(
-                "The west Maldives hotel",
+                item.hotelName,
                 style: Styles.textStyle18.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
@@ -41,7 +55,7 @@ class CustomSlideItem extends StatelessWidget {
                 height: 2,
               ),
               Text(
-                "Maldives South Asia",
+                item.country,
                 style: Styles.textStyle12.copyWith(
                   color: Colors.white.withOpacity(0.7),
                 ),
@@ -49,9 +63,10 @@ class CustomSlideItem extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
+
               Text(
-                "\$50 per Night",
-                style: Styles.textStyle12.copyWith(color: Colors.white),
+                r'$''${item.price} ' 'Per Night',
+                style: Styles.textStyle12.copyWith(color: Colors.white,fontWeight: FontWeight.w600),
               ),
             ],
           ),

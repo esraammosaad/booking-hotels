@@ -14,9 +14,9 @@ class RecommendedView extends StatelessWidget {
       appBar: AppBar(
         leading: GestureDetector(
             onTap: () {
-              context.pushReplacement(AppRoutes.kHomeView);
+              context.pop();
             },
-            child: Image.asset(Assets.iconsBack)),
+            child: const Icon(Icons.arrow_back_ios_new_outlined)),
         title: Text("Recommended", style: Styles.textStyle24),
       ),
       body: const RecommendedViewBody(),

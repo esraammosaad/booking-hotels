@@ -1,5 +1,7 @@
+import 'package:booking_hotels/features/home/presentation/views/manager/home_cubit/home_cubit.dart';
 import 'package:booking_hotels/features/home/presentation/views/widgets/custom_search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../generated/assets.dart';
@@ -15,36 +17,13 @@ class SearchViewBody extends StatefulWidget {
 }
 
 class _SearchViewBodyState extends State<SearchViewBody> {
-  List<HotelModel> hotelList = [
-    HotelModel(
-      image: Assets.imagesAman,
-      hotelName: "Aman New York",
-      country: "New York, USA",
-      price: "\$50",
-    ),
-    HotelModel(
-      image: Assets.imagesLuxury,
-      hotelName: "luxury Resort Hotel",
-      country: "Grand Hyatt Dubai",
-      price: "\$80",
-    ),
-    HotelModel(
-      image: Assets.imagesSteigenberger,
-      hotelName: "Steigenberger Aqua",
-      country: "Hurghada, Egypt",
-      price: "\$20",
-    ),
-    HotelModel(
-      image: Assets.imagesSonsta,
-      hotelName: "Sonsta Hotel,Cairo",
-      country: "Cairo, Egypt",
-      price: "\$99",
-    ),
-  ];
+  List<HotelModel> hotelList = [];
   List<HotelModel> searchHotels = [];
+
 
   @override
   void initState() {
+    hotelList=BlocProvider.of<HomeCubit>(context).hotelList;
     searchHotels = hotelList;
     super.initState();
   }
@@ -152,11 +131,7 @@ class _SearchViewBodyState extends State<SearchViewBody> {
             itemCount: hotelList.length,
             itemBuilder: (context, index) {
               return CustomSearchCardItem(
-                favouriteImage: Assets.iconsFavourite,
-                image: hotelList[index].image,
-                hotelName: hotelList[index].hotelName,
-                country: hotelList[index].country,
-                price: hotelList[index].price,
+              item:  hotelList[index],
               );
             },
           ),

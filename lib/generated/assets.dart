@@ -58,4 +58,8 @@ class Assets {
   static const String imagesGallary = 'assets/images/gallary.png';
   static const String imagesReview_1 = 'assets/images/review_1.png';
   static const String imagesReview_2 = 'assets/images/review_2.png';
+  static const String paypal = 'assets/icons/Rectangle 16.png';
+  static const String visa = 'assets/icons/Rectangle 17.png';
+  static const String mastercard = 'assets/icons/Rectangle 18.png';
+
 }

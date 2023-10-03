@@ -1,11 +1,13 @@
+import 'package:booking_hotels/features/home/data/models/hotel_model.dart';
+import 'package:booking_hotels/features/home/presentation/views/manager/home_cubit/home_cubit.dart';
+import 'package:booking_hotels/features/home/presentation/views/widgets/CustomHomeViewSearchContainer.dart';
 import 'package:booking_hotels/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/routes.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../../../generated/assets.dart';
 import '../../../data/models/country_model.dart';
-import '../../../data/models/hotel_model.dart';
 import 'custom_card_item.dart';
 import 'custom_list_view_item.dart';
 import 'custom_search_bar.dart';
@@ -20,51 +22,15 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-  List<CountryModel> countryList = [
-    CountryModel(
-      image: Assets.imagesEgypt,
-      name: "Egypt",
-    ),
-    CountryModel(
-      image: Assets.imagesNyork,
-      name: "Nyork",
-    ),
-    CountryModel(
-      image: Assets.imagesIndea,
-      name: "indea",
-    ),
-    CountryModel(
-      image: Assets.imagesDubai,
-      name: "Dubai",
-    ),
-  ];
+  List<HotelModel> hotelList = [];
+  List<CountryModel> countryList = [];
 
-  List<HotelModel> hotelList = [
-    HotelModel(
-      image: Assets.imagesAman,
-      hotelName: "Aman New York",
-      country: "New York, USA",
-      price: "\$50",
-    ),
-    HotelModel(
-      image: Assets.imagesLuxury,
-      hotelName: "luxury Resort Hotel",
-      country: "Grand Hyatt Dubai",
-      price: "\$80",
-    ),
-    HotelModel(
-      image: Assets.imagesSteigenberger,
-      hotelName: "Steigenberger Aqua",
-      country: "Hurghada, Egypt",
-      price: "\$20",
-    ),
-    HotelModel(
-      image: Assets.imagesSonsta,
-      hotelName: "Sonsta Hotel,Cairo",
-      country: "Cairo, Egypt",
-      price: "\$99",
-    ),
-  ];
+  @override
+  void initState() {
+    hotelList = BlocProvider.of<HomeCubit>(context).hotelList;
+    countryList = BlocProvider.of<HomeCubit>(context).countryList;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,17 +40,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.05),
-          child: CustomSearchBar(
-            onTap: () {
-              context.push(AppRoutes.kSearchView);
-            },
-            label: Text(
-              'search here...',
-              style: Styles.textStyle20.copyWith(
-                color: Colors.black.withOpacity(0.5),
-              ),
-            ),
-          ),
+          child: CustomHomeViewSearchContainer(onTap: (){
+            context.push(AppRoutes.kSearchView);
+
+          }),
         ),
         Padding(
           padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
@@ -133,10 +92,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               return CustomCardItem(
-                image: hotelList[index].image,
-                hotelName: hotelList[index].hotelName,
-                country: hotelList[index].country,
-                price: hotelList[index].price,
+                item: hotelList[index],
               );
             },
             separatorBuilder: (context, index) => const SizedBox(height: 7),
@@ -159,10 +115,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return CustomCardItem(
-              image: hotelList[index].image,
-              hotelName: hotelList[index].hotelName,
-              country: hotelList[index].country,
-              price: hotelList[index].price,
+              item: hotelList[index],
+
             );
           },
           separatorBuilder: (context, index) => const SizedBox(height: 7),
@@ -184,10 +138,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return CustomCardItem(
-              image: hotelList[index].image,
-              hotelName: hotelList[index].hotelName,
-              country: hotelList[index].country,
-              price: hotelList[index].price,
+              item: hotelList[index],
+
             );
           },
           separatorBuilder: (context, index) => const SizedBox(height: 7),
@@ -196,19 +148,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         const SizedBox(
           height: 14,
         ),
-        // Center(
-        //   child: GestureDetector(
-        //     onTap: () async {
-        //       await FirebaseAuth.instance.signOut();
-        //       GoogleSignIn googleSignIn = GoogleSignIn();
-        //       googleSignIn.disconnect();
-        //       context.push(
-        //         AppRoutes.kSignUpView,
-        //       );
-        //     },
-        //     child: const Text("Sign out"),
-        //   ),
-        // ),
       ],
     );
   }

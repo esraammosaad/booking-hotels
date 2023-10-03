@@ -1,21 +1,17 @@
+import 'package:booking_hotels/features/home/data/models/hotel_model.dart';
 import 'package:flutter/material.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../../../generated/assets.dart';
+import 'custom_favorite_icon.dart';
 
 class CustomCardItem extends StatelessWidget {
   const CustomCardItem({
-    super.key,
-    required this.image,
-    required this.hotelName,
-    required this.country,
-    required this.price,
+    super.key, required this.item,
+
   });
 
-  final String image;
-  final String hotelName;
-  final String country;
-  final String price;
+  final HotelModel item;
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,12 +43,12 @@ class CustomCardItem extends StatelessWidget {
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 child: Stack(
                   children: [
-                    Image.asset(image),
-                    Positioned(
-                      top: 10,
-                      left: 13,
-                      child: Image.asset(Assets.iconsFavourite),
-                    ),
+                    Image.asset(item.image),
+                     Positioned(
+                         top: 10,
+                         left: 13,
+
+                         child: CustomFavoriteIcon(item: item)),
                   ],
                 ),
               ),
@@ -68,7 +64,7 @@ class CustomCardItem extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            hotelName,
+                            item.hotelName,
                             style: Styles.textStyle20.copyWith(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600),
@@ -92,7 +88,7 @@ class CustomCardItem extends StatelessWidget {
                       height: 2,
                     ),
                     Text(
-                      country,
+                      item.country,
                       style: Styles.textStyle16.copyWith(
                         color: Colors.black.withOpacity(0.7),
                       ),
@@ -105,7 +101,7 @@ class CustomCardItem extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          price,
+                          r'$''${item.price}',
                           style: Styles.textStyle16.copyWith(
                             color: kPrimaryColor,
                             fontWeight: FontWeight.w600,
@@ -141,3 +137,5 @@ class CustomCardItem extends StatelessWidget {
     );
   }
 }
+
+

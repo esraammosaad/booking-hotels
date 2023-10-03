@@ -1,3 +1,4 @@
+import 'package:booking_hotels/constants.dart';
 import 'package:flutter/material.dart';
 import '../../../../profile/presentation/views/widgets/custom_edit_profile_title.dart';
 import 'custom_price_details_row.dart';
@@ -15,7 +16,7 @@ class CustomPriceDetailsContainer extends StatelessWidget {
       const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: Colors.black.withOpacity(0.05)),
+          color: kFieldColor),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

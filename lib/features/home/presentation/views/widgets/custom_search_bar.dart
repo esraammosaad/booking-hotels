@@ -33,19 +33,19 @@ class CustomSearchBar extends StatelessWidget {
         ],
       ),
       child: Card(
-        margin: EdgeInsets.zero,
-        color: Colors.white,
-        shadowColor: Colors.black.withOpacity(0.25),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: CustomSearchTextField(
-          prefixIcon: prefixIcon,
-          label: label,
-          onChanged: onChanged,
-          onTap: onTap,
-        ),
-      ),
+          margin: EdgeInsets.zero,
+          color: Colors.white,
+          shadowColor: Colors.black.withOpacity(0.25),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: CustomSearchTextField(
+            prefixIcon: prefixIcon,
+            label: label,
+            onChanged: onChanged,
+            onTap: onTap,
+          ),
+          ),
     );
   }
 }

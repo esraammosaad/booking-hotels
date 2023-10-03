@@ -1,22 +1,17 @@
+import 'package:booking_hotels/features/home/data/models/hotel_model.dart';
+import 'package:booking_hotels/features/home/presentation/views/widgets/custom_favorite_icon.dart';
 import 'package:flutter/material.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomSearchCardItem extends StatelessWidget {
   const CustomSearchCardItem({
-    super.key,
-    required this.image,
-    required this.hotelName,
-    required this.country,
-    required this.price,
-    required this.favouriteImage,
+    super.key, required this.item,
+
   });
 
-  final String image;
-  final String hotelName;
-  final String country;
-  final String price;
-  final String favouriteImage;
+  final HotelModel item;
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +42,12 @@ class CustomSearchCardItem extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Image.asset(image, height: 96),
+                  Image.asset(item.image, height: 96),
                   Positioned(
                     top: 9,
                     right: 9,
-                    child: Image.asset(favouriteImage),
+                    child:CustomFavoriteIcon(item: item
+                    ),
                   ),
                 ],
               ),
@@ -59,7 +55,7 @@ class CustomSearchCardItem extends StatelessWidget {
                 height: 2,
               ),
               Text(
-                hotelName,
+               item.hotelName,
                 style: Styles.textStyle18.copyWith(
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
@@ -71,7 +67,7 @@ class CustomSearchCardItem extends StatelessWidget {
                 height: 2,
               ),
               Text(
-                country,
+                item.country,
                 style: Styles.textStyle12.copyWith(
                   color: Colors.black.withOpacity(0.7),
                 ),
@@ -84,7 +80,7 @@ class CustomSearchCardItem extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    price,
+                    r'$''${item.price}',
                     style: Styles.textStyle12.copyWith(
                       color: kPrimaryColor,
                       fontWeight: FontWeight.w500,

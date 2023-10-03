@@ -1,6 +1,7 @@
 import 'package:booking_hotels/constants.dart';
 import 'package:booking_hotels/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import '../../../../../generated/assets.dart';
 import 'custom_notification_button.dart';
 import 'custom_notification_item.dart';
 import 'custom_notification_text.dart';
@@ -35,47 +36,84 @@ class NotificationViewBody extends StatelessWidget {
                     ],
                   ),
                 ),
-                const CustomNotificationItem(
+                CustomNotificationItem(
+                  borderColor: const Color(0x80000000),
+
+                  color: Colors.transparent,
+
+                  trailing: Image.asset(Assets.iconsNotificationView),
                   title: "Steigenberger Aqua",
-                  subTitle: "Today 12:00 pm",
-                ),
+                  subTitle:
+                    "Today 12:00 pm",
+
+                                  ),
                 const SizedBox(
                   height: 14,
                 ),
-                const CustomNotificationItem(
+                CustomNotificationItem(
+                  borderColor: const Color(0x80000000),
+                  color: Colors.transparent,
+
+                  trailing: Image.asset(Assets.iconsNotificationView),
                   title: "Steigenberger Aqua",
-                  subTitle: "Today 12:00 pm",
-                ),
+                  subTitle:
+                    "Today 12:00 pm",
+                                  ),
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 23),
                   child: CustomNotificationText(text: "Yesterday"),
                 ),
-                const CustomNotificationItem(
+                CustomNotificationItem(
+                  borderColor: const Color(0x80000000),
+
+                  color: Colors.transparent,
+
+                  trailing: Image.asset(Assets.iconsNotificationView),
                   title: "Steigenberger Aqua",
-                  subTitle: "Today 12:00 pm",
-                ),
+                  subTitle:
+                    "Today 12:00 pm",
+                                   ),
                 const SizedBox(
                   height: 14,
                 ),
-                const CustomNotificationItem(
+                CustomNotificationItem(
+                  borderColor: const Color(0x80000000),
+
+                  color: Colors.transparent,
+
+                  trailing: Image.asset(Assets.iconsNotificationView),
                   title: "Steigenberger Aqua",
-                  subTitle: "Today 12:00 pm",
+                  subTitle:
+                    "Today 12:00 pm",
+
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 23),
                   child: CustomNotificationText(text: "Last 7 Days"),
                 ),
-                const CustomNotificationItem(
+                CustomNotificationItem(
+                  borderColor: const Color(0x80000000),
+
+                  color: Colors.transparent,
+
+                  trailing: Image.asset(Assets.iconsNotificationView),
                   title: "Steigenberger Aqua",
-                  subTitle: "Today 12:00 pm",
+                  subTitle:
+                    "Today 12:00 pm",
+
                 ),
                 const SizedBox(
                   height: 14,
                 ),
-                const CustomNotificationItem(
+                CustomNotificationItem(
+                  borderColor: const Color(0x80000000),
+
+                  color: Colors.transparent,
+                  trailing: Image.asset(Assets.iconsNotificationView),
                   title: "Steigenberger Aqua",
-                  subTitle: "Today 12:00 pm",
-                ),
+                  subTitle:
+                    "Today 12:00 pm",
+                                   ),
               ],
             ),
           ),
@@ -85,5 +123,3 @@ class NotificationViewBody extends StatelessWidget {
     );
   }
 }
-
-

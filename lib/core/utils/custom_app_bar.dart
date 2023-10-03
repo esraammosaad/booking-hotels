@@ -1,3 +1,4 @@
+import 'package:booking_hotels/core/utils/routes.dart';
 import 'package:booking_hotels/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -27,7 +28,7 @@ class CustomAppBar extends StatelessWidget {
       ),
       leading: GestureDetector(
         onTap: () {
-          context.pop();
+          context.pushReplacement(AppRoutes.kHomeView);
         },
         child: Image.asset(Assets.iconsBack),
       ),

@@ -72,7 +72,11 @@ class ProfileViewBody extends StatelessWidget {
           ),
           CustomProfileItem(
             text: "Payment",
-            onTap: () {},
+            onTap: () {
+              context.push(AppRoutes.kPaymentView);
+
+
+            },
           ),
           const SizedBox(
             height: 14,
