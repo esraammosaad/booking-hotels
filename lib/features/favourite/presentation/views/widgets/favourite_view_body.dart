@@ -1,8 +1,9 @@
-import 'package:booking_hotels/features/home/presentation/views/manager/favorite_cubit/favorite_cubit.dart';
+import 'package:booking_hotels/features/favourite/presentation/manager/favorite_cubit/favorite_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../home/data/models/hotel_model.dart';
 import '../../../../search/presentation/views/widgets/custom_search_card_item.dart';
+import '../../manager/favorite_cubit/favorite_state.dart';
 
 class FavouriteViewBody extends StatefulWidget {
   const FavouriteViewBody({super.key});

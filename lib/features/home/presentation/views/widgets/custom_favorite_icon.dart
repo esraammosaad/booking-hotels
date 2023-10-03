@@ -1,10 +1,11 @@
 import 'package:booking_hotels/features/home/data/models/hotel_model.dart';
-import 'package:booking_hotels/features/home/presentation/views/manager/favorite_cubit/favorite_cubit.dart';
+import 'package:booking_hotels/features/favourite/presentation/manager/favorite_cubit/favorite_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 import '../../../../../constants.dart';
+import '../../../../favourite/presentation/manager/favorite_cubit/favorite_state.dart';
 class CustomFavoriteIcon extends StatelessWidget {
   const CustomFavoriteIcon({
     super.key, required this.item,

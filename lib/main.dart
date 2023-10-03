@@ -1,8 +1,7 @@
 import 'package:booking_hotels/core/utils/routes.dart';
 import 'package:booking_hotels/features/authentication/presentation/manager/auth_cubit/auth_cubit.dart';
 import 'package:booking_hotels/features/help_and_support/presentation/manager/chat_cubit/chat_cubit.dart';
-import 'package:booking_hotels/features/home/presentation/views/manager/cart_cubit/cart_cubit.dart';
-import 'package:booking_hotels/features/home/presentation/views/manager/favorite_cubit/favorite_cubit.dart';
+import 'package:booking_hotels/features/favourite/presentation/manager/favorite_cubit/favorite_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,9 +37,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FavoriteCubit(),
         ),
-        BlocProvider(
-          create: (context) => CartCubit(),
-        ),
+
       ],
       child: MaterialApp.router(
         routerConfig: AppRoutes.router,

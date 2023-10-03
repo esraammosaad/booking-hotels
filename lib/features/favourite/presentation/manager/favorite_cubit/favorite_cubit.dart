@@ -1,9 +1,8 @@
 import 'package:booking_hotels/features/home/data/models/hotel_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'favorite_state.dart';
 
 
-part 'favorite_state.dart';
 
 class FavoriteCubit extends Cubit<FavoriteState> {
   FavoriteCubit() : super(FavoriteInitial());
